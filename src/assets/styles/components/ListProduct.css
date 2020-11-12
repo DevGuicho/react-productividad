@@ -1,0 +1,39 @@
+.ListProduct {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-right: 20px;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+}
+/* Tamaño del scroll */
+.ListProduct::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Estilos barra (thumb) de scroll */
+.ListProduct::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.ListProduct::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.ListProduct::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+.ListProduct::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+.ListProduct::-webkit-scrollbar-track:hover,
+.ListProduct::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}

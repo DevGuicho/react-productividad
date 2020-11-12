@@ -1,0 +1,124 @@
+.articuloCongreso,
+.articuloRevista {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  width: calc(100% - 20px);
+  border: 2px solid var(--pinkArticles);
+  border-radius: 0 15px 15px 0;
+  color: var(--pinkArticles);
+}
+
+.articuloCongreso::after,
+.articuloRevista::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  border: 2px solid var(--pinkArticles);
+  border-radius: 15px 0 0 15px;
+  background: var(--pinkArticles);
+}
+
+.capituloLibro,
+.Libro {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  width: calc(100% - 20px);
+  border: 2px solid var(--blueArticles);
+  border-radius: 0 15px 15px 0;
+  color: var(--blueArticles);
+}
+
+.capituloLibro::after,
+.Libro::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  border: 2px solid var(--blueArticles);
+  border-radius: 15px 0 0 15px;
+  background: var(--blueArticles);
+}
+
+.Desarrollo {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  width: calc(100% - 20px);
+  border: 2px solid var(--yellowArticles);
+  border-radius: 0 15px 15px 0;
+  color: var(--yellowArticles);
+}
+
+.Desarrollo::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  border: 2px solid var(--yellowArticles);
+  border-radius: 15px 0 0 15px;
+  background: var(--yellowArticles);
+}
+
+.product__article--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  color: var(--black-warn);
+}
+.product__article--header i {
+  font-size: 1.6rem;
+  margin-left: 10px;
+}
+.product__title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--black-warn);
+}
+.product__details {
+  width: 100%;
+}
+.product__details--list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  list-style: none;
+}
+.product__details--list i {
+  margin-right: 5px;
+  color: var(--pinkArticles);
+  font-size: 1.2rem;
+}
+.details__principal {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  color: var(--black-warn);
+}
+.product__details--book {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.product__details--book li {
+  width: 100%;
+}

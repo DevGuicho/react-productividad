@@ -1,0 +1,58 @@
+:root {
+  --bg-guinda: #80004a;
+  --bg-gray: #f1f2f5;
+  --black-warn: #282934;
+  --pinkArticles: #e57b8e;
+  --blueArticles: #7bb9e5;
+  --yellowArticles: #f6c169;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 62.5%;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 80px calc(100vw - 88px);
+  grid-template-rows: 60px calc(100vh - 60px) 100px;
+  grid-template-areas:
+    'header header'
+    'aside main'
+    'footer footer';
+}
+/* Tamaño del scroll */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Estilos barra (thumb) de scroll */
+body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+body::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}

@@ -1,0 +1,55 @@
+.selectPage {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: minmax(auto, 95%);
+  justify-content: center;
+}
+
+.selectPage__container {
+  display: flex;
+  flex-direction: column;
+}
+.selectPage__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 56px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #727272;
+}
+.selectPage__title {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+.selectPage__Grid {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 50px;
+}
+.btnProduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 250px;
+  background: var(--bg-guinda);
+  border-radius: 10px;
+}
+.btnProduct__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+}
+.btnProduct__Link--img {
+  margin-bottom: 20px;
+}
+.btnProduct__Link--text {
+  color: white;
+  text-decoration: none;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
