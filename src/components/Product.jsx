@@ -1,9 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../assets/styles/components/Product.css';
+import { ProductContext } from '../routes/App';
 
-const Product = ({ product, type }) => {
+const Product = ({ product, type, isCordinator }) => {
+  let route = '';
+  const productContext = useContext(ProductContext);
+  const history = useHistory();
+  const deleteProduct = async () => {
+    await productContext.productDispatch({
+      type: 'DELETE_PRODUCT',
+      value: product.id,
+    });
+  };
+  const editProduct = () => {
+    history.push(route, { params: product });
+  };
   const select = (product) => {
     if (type === 'articuloCongreso') {
+      route = '/art-congreso';
       return (
         <li className='details__principal'>
           <i className='fas fa-users'></i>
@@ -11,6 +26,7 @@ const Product = ({ product, type }) => {
         </li>
       );
     } else if (type === 'articuloRevista') {
+      route = '/art-revista';
       return (
         <li className='details__principal'>
           <i className='fas fa-globe'></i>
@@ -24,6 +40,7 @@ const Product = ({ product, type }) => {
         </li>
       );
     } else if (type === 'capituloLibro') {
+      route = '/capitulo-libro';
       return (
         <li className='details__principal'>
           <i className='fas fa-globe'></i>
@@ -36,6 +53,7 @@ const Product = ({ product, type }) => {
         </li>
       );
     } else if (type === 'Libro') {
+      route = '/libro';
       return (
         <li className='details__principal'>
           <i className='fas fa-globe'></i>
@@ -47,6 +65,7 @@ const Product = ({ product, type }) => {
         </li>
       );
     } else if (type === 'Desarrollo') {
+      route = '/desarrollo';
       return (
         <li className='details__principal'>
           <i className='fas fa-globe'></i>
@@ -62,10 +81,14 @@ const Product = ({ product, type }) => {
     <article className={`product__article ${type}`}>
       <div className='product__article--header'>
         <h3 className='product__title'>{product.titulo}</h3>
-        <div>
-          <i className='fas fa-trash-alt'></i>
-          <i className='fas fa-pen'></i>
-        </div>
+        {isCordinator ? (
+          <div></div>
+        ) : (
+          <div>
+            <i className='fas fa-trash-alt click' onClick={deleteProduct}></i>
+            <i className='fas fa-pen click' onClick={editProduct}></i>
+          </div>
+        )}
       </div>
       <div className='product__details'>
         <ul className='product__details--list'>

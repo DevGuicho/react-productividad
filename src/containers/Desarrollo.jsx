@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import md5 from 'md5';
@@ -8,25 +8,36 @@ import { ProductContext } from '../routes/App';
 const Desarrollo = () => {
   const productContext = useContext(ProductContext);
   const historia = useHistory();
-  const initialValues = {
-    id: 0,
-    titulo: '',
-    fecha: '',
-    autor: '',
-    url: '',
-    tesis: '',
-    type: 'Desarrollo',
-    licencia: '',
-    desarrollo: {
-      detalles: '',
-    },
-  };
+  const location = useLocation();
+  const initialValues = location.state
+    ? location.state.params
+    : {
+        id: 0,
+        titulo: '',
+        fecha: '',
+        autor: '',
+        url: '',
+        tesis: '',
+        type: 'Desarrollo',
+        licencia: '',
+        desarrollo: {
+          detalles: '',
+        },
+      };
   const onSubmit = (values) => {
-    values.id = md5(values.titulo);
-    productContext.productDispatch({
-      type: 'ADD_PRODUCT',
-      value: values,
-    });
+    if (location.state) {
+      productContext.productDispatch({
+        type: 'UPDATE_PRODUCT',
+        value: values,
+      });
+    } else {
+      values.id = md5(values.titulo);
+      productContext.productDispatch({
+        type: 'ADD_PRODUCT',
+        value: values,
+      });
+    }
+
     historia.push('/');
   };
   const validationSchema = Yup.object({

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import '../assets/styles/ArticuloCongreso.css';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { ProductContext } from '../routes/App.js';
@@ -8,22 +8,33 @@ import md5 from 'md5';
 const ArticuloCongreso = () => {
   const productContext = useContext(ProductContext);
   const historia = useHistory();
-  const initialValues = {
-    id: 0,
-    titulo: '',
-    congreso: '',
-    fecha: '',
-    autor: '',
-    url: '',
-    tesis: '',
-    type: 'articuloCongreso',
-  };
+  const location = useLocation();
+  const initialValues = location.state
+    ? location.state.params
+    : {
+        id: 0,
+        titulo: '',
+        congreso: '',
+        fecha: '',
+        autor: '',
+        url: '',
+        tesis: '',
+        type: 'articuloCongreso',
+      };
   const onSubmit = (values) => {
-    values.id = md5(values.titulo);
-    productContext.productDispatch({
-      type: 'ADD_PRODUCT',
-      value: values,
-    });
+    if (location.state) {
+      productContext.productDispatch({
+        type: 'UPDATE_PRODUCT',
+        value: values,
+      });
+    } else {
+      values.id = md5(values.titulo);
+      productContext.productDispatch({
+        type: 'ADD_PRODUCT',
+        value: values,
+      });
+    }
+
     historia.push('/');
   };
   const validationSchema = Yup.object({

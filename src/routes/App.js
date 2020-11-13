@@ -5,18 +5,20 @@ import ArticuloCongreso from '../containers/ArticuloCongreso';
 import ArticuloRevista from '../containers/ArticuloRevista';
 import CapituloLibro from '../containers/CapituloLibro';
 import Dashboard from '../containers/Dashboard';
+import DashboardCordinator from '../containers/DashboardCordinator';
+import DashboardUserCord from '../containers/DashboardUserCord';
 import Desarrollo from '../containers/Desarrollo';
 import Libro from '../containers/Libro';
 import SelectionPage from '../containers/SelectionPage';
 
 export const ProductContext = React.createContext();
-const products = [
+/* const products = [
   {
     id: 1,
     titulo: 'Paralisis del sueño',
     congreso: 'Congreso de Viena',
-    fecha: '07/07/1998',
-    autor: 'principal',
+    fecha: '1998-07-30',
+    autor: 'Principal',
     url: 'https://google.com',
     tesis: 'Si',
     type: 'articuloCongreso',
@@ -24,13 +26,13 @@ const products = [
   {
     id: 2,
     titulo: 'Paralisis del sueño',
-    autor: 'principal',
+    autor: 'Principal',
     url: 'https://google.com',
     tesis: 'Si',
     type: 'articuloRevista',
     revista: {
       nombre: 'Science America',
-      tipo: 'Tipo de revista',
+      tipo: 'Arbitrada',
       indice: 'indice',
       isnn: 'isnn',
       doi: 'DOI del articulo',
@@ -39,8 +41,8 @@ const products = [
   {
     id: 3,
     titulo: 'Paralisis del sueño',
-    fecha: '07/07/1998',
-    autor: 'principal',
+    fecha: '2002',
+    autor: 'Principal',
     url: 'https://google.com',
     tesis: 'Si',
     type: 'capituloLibro',
@@ -55,7 +57,7 @@ const products = [
     id: 4,
     titulo: 'Paralisis del sueño',
     fecha: '07/07/1998',
-    autor: 'principal',
+    autor: 'Principal',
     url: 'https://google.com',
     tesis: 'Si',
     type: 'Libro',
@@ -69,7 +71,7 @@ const products = [
     id: 5,
     titulo: 'Paralisis del sueño',
     fecha: '07/07/1998',
-    autor: 'principal',
+    autor: 'Principal',
     url: 'https://google.com',
     type: 'Desarrollo',
     tesis: 'Si',
@@ -78,12 +80,143 @@ const products = [
       detalles: 'Detalles del producto',
     },
   },
-];
+]; */
+const products = {
+  productos: [
+    {
+      id: 1,
+      titulo: 'Paralisis del sueño',
+      congreso: 'Congreso de Viena',
+      fecha: '1998-07-30',
+      autor: 'Principal',
+      url: 'https://google.com',
+      tesis: 'Si',
+      type: 'articuloCongreso',
+    },
+    {
+      id: 2,
+      titulo: 'Paralisis del sueño',
+      autor: 'Principal',
+      url: 'https://google.com',
+      tesis: 'Si',
+      type: 'articuloRevista',
+      revista: {
+        nombre: 'Science America',
+        tipo: 'Arbitrada',
+        indice: 'indice',
+        isnn: 'isnn',
+        doi: 'DOI del articulo',
+      },
+    },
+    {
+      id: 3,
+      titulo: 'Paralisis del sueño',
+      fecha: '2002',
+      autor: 'Principal',
+      url: 'https://google.com',
+      tesis: 'Si',
+      type: 'capituloLibro',
+      libro: {
+        titulo: 'Titulo del libro',
+        editorial: 'Limusa',
+        edicion: '2da Edición',
+        isbn: 'ISBN fda',
+      },
+    },
+    {
+      id: 4,
+      titulo: 'Paralisis del sueño',
+      fecha: '07/07/1998',
+      autor: 'Principal',
+      url: 'https://google.com',
+      tesis: 'Si',
+      type: 'Libro',
+      libro: {
+        editorial: 'Limusa',
+        edicion: '2da Edición',
+        isbn: 'ISBN fda',
+      },
+    },
+    {
+      id: 5,
+      titulo: 'Paralisis del sueño',
+      fecha: '07/07/1998',
+      autor: 'Principal',
+      url: 'https://google.com',
+      type: 'Desarrollo',
+      tesis: 'Si',
+      licencia: 'MIT',
+      desarrollo: {
+        detalles: 'Detalles del producto',
+      },
+    },
+  ],
+  usuarios: [
+    {
+      id: 1,
+      nombre: 'Carmen Salinas de Gortary',
+      rfc: 'rfc',
+      curp: 'curp',
+      email: 'correo electronico',
+      estudiante: 'maestria',
+      productos: [
+        {
+          id: 1,
+          titulo: 'Paralisis del sueño',
+          congreso: 'Congreso de Viena',
+          fecha: '1998-07-30',
+          autor: 'Principal',
+          url: 'https://google.com',
+          tesis: 'Si',
+          type: 'articuloCongreso',
+        },
+      ],
+    },
+    {
+      id: 2,
+      nombre: 'Carmen Salinas de Gortary',
+      rfc: 'rfc',
+      curp: 'curp',
+      email: 'correo electronico',
+      estudiante: 'doctorado',
+      productos: [
+        {
+          id: 1,
+          titulo: 'Paralisis del sueño',
+          congreso: 'Congreso de Viena',
+          fecha: '1998-07-30',
+          autor: 'Principal',
+          url: 'https://google.com',
+          tesis: 'Si',
+          type: 'articuloCongreso',
+        },
+      ],
+    },
+  ],
+};
 const initalState = products;
 const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_PRODUCT':
-      return [...state, action.value];
+      return {
+        ...state,
+        productos: [...state.productos, action.value],
+      };
+    case 'DELETE_PRODUCT':
+      return {
+        ...state,
+        productos: state.productos.filter((items) => items.id !== action.value),
+      };
+    case 'UPDATE_PRODUCT':
+      const index = state.productos.findIndex(
+        (product) => product.id === action.value.id
+      );
+      state.productos[index] = action.value;
+      return state;
+    /* return [
+        ...state.filter((product) => product.id !== action.value.id),
+        action.value,
+      ]; */
     default:
       break;
   }
@@ -104,6 +237,12 @@ const App = () => {
             <Route exact path='/capitulo-libro' component={CapituloLibro} />
             <Route exact path='/libro' component={Libro} />
             <Route exact path='/desarrollo' component={Desarrollo} />
+            <Route exact path='/coordinador' component={DashboardCordinator} />
+            <Route
+              exact
+              path='/productos-usaurio'
+              component={DashboardUserCord}
+            />
           </Switch>
         </Layout>
       </BrowserRouter>
