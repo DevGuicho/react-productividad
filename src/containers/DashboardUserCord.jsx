@@ -53,7 +53,7 @@ const DashboardUserCord = () => {
     <section className='main'>
       <div className='productTable'>
         <div className='productTable__header'>
-          <h2>Productividad</h2>
+          <h2>Productividadf</h2>
           <p>{usuario.nombre}</p>
         </div>
         <Navbar selector={setSearch} number={number} />
