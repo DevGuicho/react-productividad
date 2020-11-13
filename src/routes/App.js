@@ -15,8 +15,8 @@ const products = [
     id: 1,
     titulo: 'Paralisis del sueño',
     congreso: 'Congreso de Viena',
-    fecha: '07/07/1998',
-    autor: 'principal',
+    fecha: '1998-07-30',
+    autor: 'Principal',
     url: 'https://google.com',
     tesis: 'Si',
     type: 'articuloCongreso',
@@ -24,13 +24,13 @@ const products = [
   {
     id: 2,
     titulo: 'Paralisis del sueño',
-    autor: 'principal',
+    autor: 'Principal',
     url: 'https://google.com',
     tesis: 'Si',
     type: 'articuloRevista',
     revista: {
       nombre: 'Science America',
-      tipo: 'Tipo de revista',
+      tipo: 'Arbitrada',
       indice: 'indice',
       isnn: 'isnn',
       doi: 'DOI del articulo',
@@ -39,8 +39,8 @@ const products = [
   {
     id: 3,
     titulo: 'Paralisis del sueño',
-    fecha: '07/07/1998',
-    autor: 'principal',
+    fecha: '2002',
+    autor: 'Principal',
     url: 'https://google.com',
     tesis: 'Si',
     type: 'capituloLibro',
@@ -55,7 +55,7 @@ const products = [
     id: 4,
     titulo: 'Paralisis del sueño',
     fecha: '07/07/1998',
-    autor: 'principal',
+    autor: 'Principal',
     url: 'https://google.com',
     tesis: 'Si',
     type: 'Libro',
@@ -69,7 +69,7 @@ const products = [
     id: 5,
     titulo: 'Paralisis del sueño',
     fecha: '07/07/1998',
-    autor: 'principal',
+    autor: 'Principal',
     url: 'https://google.com',
     type: 'Desarrollo',
     tesis: 'Si',
@@ -84,6 +84,18 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'ADD_PRODUCT':
       return [...state, action.value];
+    case 'DELETE_PRODUCT':
+      return state.filter((items) => items.id !== action.value);
+    case 'UPDATE_PRODUCT':
+      const index = state.findIndex(
+        (product) => product.id === action.value.id
+      );
+      state[index] = action.value;
+      return state;
+    /* return [
+        ...state.filter((product) => product.id !== action.value.id),
+        action.value,
+      ]; */
     default:
       break;
   }

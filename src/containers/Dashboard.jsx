@@ -7,17 +7,15 @@ import Product from '../components/Product';
 import { ProductContext } from '../routes/App';
 
 const Dashboar = () => {
-  const [productList, setProductList] = useState(
-    useContext(ProductContext).productState
-  );
+  const productList = useContext(ProductContext).productState;
   const [search, setSearch] = useState('all');
-  const [number, setNumber] = useState({
+  const number = {
     all: productList.length,
     articulos: productList.filter(articulos).length,
     libros: productList.filter(libros).length,
     desarrollos: productList.filter((product) => product.type === 'Desarrollo')
       .length,
-  });
+  };
   function articulos(elemento) {
     if (
       elemento.type === 'articuloCongreso' ||
