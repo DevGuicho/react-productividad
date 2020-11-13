@@ -62,17 +62,17 @@ const Desarrollo = () => {
           </div>
           <div className='form'>
             <div className='inputControl'>
-              <label htmlFor='titulo'>Titulo del Desarrollo</label>
+              <label className='text__label' htmlFor='titulo'>Titulo del Desarrollo</label>
               <Field className='input' type='text' name='titulo' id='titulo' />
               <ErrorMessage className='error' name='titulo' component='span' />
             </div>
             <div className='inputControl'>
-              <label htmlFor='fecha'>Año de publicación</label>
+              <label className='text__label' htmlFor='fecha'>Año de publicación</label>
               <Field className='input' type='text' name='fecha' id='fecha' />
               <ErrorMessage className='error' name='fecha' component='span' />
             </div>
             <div className='inputControl'>
-              <label htmlFor='licencia'>Licencia</label>
+              <label className='text__label' htmlFor='licencia'>Licencia</label>
               <Field
                 className='input'
                 type='text'
@@ -86,12 +86,12 @@ const Desarrollo = () => {
               />
             </div>
             <div className='inputControl'>
-              <label htmlFor='url'>URL del repositorio</label>
+              <label className='text__label' htmlFor='url'>URL del repositorio</label>
               <Field className='input' type='text' name='url' id='url' />
               <ErrorMessage className='error' name='url' component='span' />
             </div>
             <div className='inputControl'>
-              <label htmlFor='autor'>Tipo de autor</label>
+              <label className='text__label' htmlFor='autor'>Tipo de autor</label>
               <Field className='input' as='select' name='autor' id='autor'>
                 <option value=''>Seleccione una opción</option>
                 <option value='Principal'>Principal</option>
@@ -101,7 +101,7 @@ const Desarrollo = () => {
             </div>
 
             <div className='inputControl'>
-              <label htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
+              <label className='text__label' htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
               <Field className='input' as='select' name='tesis' id='tesis'>
                 <option value=''>Seleccione una opción</option>
                 <option value='Si'>Si</option>
@@ -110,7 +110,7 @@ const Desarrollo = () => {
               <ErrorMessage className='error' name='tesis' component='span' />
             </div>
             <div className='inputControl'>
-              <label htmlFor='detalles'>Detalles del desarrollo</label>
+              <label className='text__label' htmlFor='detalles'>Detalles del desarrollo</label>
               <Field
                 className='input'
                 as='textarea'

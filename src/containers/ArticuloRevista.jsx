@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import md5 from 'md5';
-
+import '../assets/styles/ArticuloRevista.css' //importarat
 import { ProductContext } from '../routes/App';
 const ArticuloRevista = () => {
   const productContext = useContext(ProductContext);
@@ -64,14 +64,19 @@ const ArticuloRevista = () => {
               <i className='fas fa-save'></i>Guardar producto
             </button>
           </div>
+          {/* Desde Aqui */}
           <div className='form'>
-            <div className='inputControl'>
-              <label htmlFor='titulo'>Titulo del Articulo</label>
-              <Field className='input' type='text' name='titulo' id='titulo' />
-              <ErrorMessage className='error' name='titulo' component='span' />
+            <div className='inputControl p1'>
+              <label className='text__label' htmlFor='titulo'>Titulo del Articulo</label>
+              <div className='input__group'>
+                <Field className='input' type='text' name='titulo' id='titulo' />
+                <i className='input__validation fas fa-times-circle'></i>
+                <ErrorMessage className='error' name='titulo' component='span' />
+              </div>
             </div>
-            <div className='inputControl'>
-              <label htmlFor='tipo'>Tipo de revista</label>
+            <div className='inputControl p1'>
+              <label className='text__label' htmlFor='tipo'>Tipo de revista</label>
+              <div className='input__group'>
               <Field
                 className='input'
                 as='select'
@@ -82,57 +87,71 @@ const ArticuloRevista = () => {
                 <option value='Arbitrada'>Arbitrada</option>
                 <option value='No Arbitrada'>No Arbitrada</option>
               </Field>
+              <i className='input__validation fas fa-times-circle'></i>
               <ErrorMessage
                 className='error'
                 name='revista.tipo'
                 component='span'
               />
+              </div>
             </div>
-            <div className='inputControl'>
-              <label htmlFor='isnn'>ISNN</label>
+            <div className='inputControl p1'>
+              <label className='text__label' htmlFor='isnn'>ISNN</label>
+              <div className='input__group'>
               <Field
                 className='input'
                 type='text'
                 name='revista.isnn'
                 id='isnn'
               />
+              <i className='input__validation fas fa-times-circle'></i>
               <ErrorMessage
                 className='error'
                 name='revista.isnn'
                 component='span'
               />
+              </div>
             </div>
-            <div className='inputControl'>
-              <label htmlFor='url'>URL del evento</label>
-              <Field className='input' type='text' name='url' id='url' />
-              <ErrorMessage className='error' name='url' component='span' />
+            <div className='inputControl p1'>
+              <label  className='text__label' htmlFor='url'>URL del evento</label>
+              <div className='input__group'>
+                <Field className='input' type='text' name='url' id='url' />
+                <i className='input__validation fas fa-times-circle'></i>
+                <ErrorMessage className='error' name='url' component='span' />
+                </div>
             </div>
-            <div className='inputControl'>
-              <label htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
+            <div className='inputControl p1'>
+              <label  className='text__label' htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
+              <div className='input__group'>
               <Field className='input' as='select' name='tesis' id='tesis'>
                 <option value=''>Seleccione una opción</option>
                 <option value='Si'>Si</option>
                 <option value='No'>No</option>
               </Field>
+              <i className='input__validation fas fa-times-circle'></i>
               <ErrorMessage className='error' name='tesis' component='span' />
+              </div>
             </div>
-            <div className='inputControl'>
-              <label htmlFor='nombreRevista'>Nombre de la revista</label>
+            <div className='inputControl p1'>
+              <label className='text__label' htmlFor='nombreRevista'>Nombre de la revista</label>
+              <div className='input__group'>
               <Field
                 className='input'
                 type='text'
                 name='revista.nombre'
                 id='nombreRevista'
               />
-
+              <i className='input__validation fas fa-times-circle'></i>
               <ErrorMessage
                 className='error'
                 name='revista.nombre'
                 component='span'
               />
+              </div>
             </div>
-            <div className='inputControl'>
-              <label htmlFor='indice'>indice de la revista</label>
+            <div className='inputControl p1'>
+              <label className='text__label' htmlFor='indice'>indice de la revista</label>
+              <div className='input__group'>
               <Field
                 className='input'
                 as='select'
@@ -144,35 +163,42 @@ const ArticuloRevista = () => {
                 <option value='JCR'>JCR</option>
                 <option value='Otro'>Otro</option>
               </Field>
+              <i className='input__validation fas fa-times-circle'></i>
               <ErrorMessage
                 className='error'
                 name='revista.indice'
                 component='span'
               />
+              </div>
             </div>
-            <div className='inputControl'>
-              <label htmlFor='doi'>DOI</label>
+            <div className='inputControl p1'>
+              <label className='text__label' htmlFor='doi'>DOI</label>
+              <div className='input__group'>
               <Field
                 className='input'
                 type='text'
                 name='revista.doi'
                 id='doi'
               />
-
+              <i className='input__validation fas fa-times-circle'></i>
               <ErrorMessage
                 className='error'
                 name='revista.doi'
                 component='span'
               />
+              </div>
             </div>
-            <div className='inputControl'>
-              <label htmlFor='autor'>Tipo de autor</label>
+            <div className='inputControl p1'>
+              <label className='text__label' htmlFor='autor'>Tipo de autor</label>
+              <div className='input__group'>
               <Field className='input' as='select' name='autor' id='autor'>
                 <option value=''>Seleccione una opción</option>
                 <option value='Principal'>Principal</option>
                 <option value='Secunadario'>Secundario</option>
               </Field>
+              <i className='input__validation fas fa-times-circle'></i>
               <ErrorMessage className='error' name='autor' component='span' />
+              </div>
             </div>
           </div>
         </div>

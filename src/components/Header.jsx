@@ -1,9 +1,10 @@
 import React from 'react';
-import logoIpn from '../assets/img/logo_ipn.jpg';
-import '../assets/styles/components/Header.css';
+import logoIpn from '../assets/img/logo_ipn.jpg'; //Agregar Imagenes
+import '../assets/styles/components/Header.css'; //Importar Hojas de Estilos
 const Header = () => {
   return (
-    <header className='header'>
+    /*class -> className */
+    <header className='header'> 
       <div className='header__title'>
         <img src={logoIpn} alt='logo IPN' />
         <div className='header__text'>

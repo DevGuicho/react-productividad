@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/styles/Dashboard.css';
+import '../assets/styles/Dashboard.css'; //Importar Estilos a un Componente
 import Navbar from '../components/Navbar';
 import ListProduct from '../components/ListProduct';
 import Product from '../components/Product';
 import { ProductContext } from '../routes/App';
-
+// Containears-> Componentes Mas Grandes
 const Dashboar = () => {
   const [productList, setProductList] = useState(
     useContext(ProductContext).productState

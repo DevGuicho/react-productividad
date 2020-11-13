@@ -66,7 +66,7 @@ const CapituloLibro = () => {
           </div>
           <div className='form'>
             <div className='inputControl'>
-              <label htmlFor='titulo'>Titulo del Libro</label>
+              <label className='text__label' htmlFor='titulo'>Titulo del Libro</label>
               <Field
                 className='input'
                 type='text'
@@ -80,7 +80,7 @@ const CapituloLibro = () => {
               />
             </div>
             <div className='inputControl'>
-              <label htmlFor='edicion'>Edicion</label>
+              <label className='text__label' htmlFor='edicion'>Edicion</label>
               <Field
                 className='input'
                 type='text'
@@ -94,7 +94,7 @@ const CapituloLibro = () => {
               />
             </div>
             <div className='inputControl'>
-              <label htmlFor='isbn'>ISBN</label>
+              <label className='text__label' htmlFor='isbn'>ISBN</label>
               <Field
                 className='input'
                 type='text'
@@ -108,12 +108,12 @@ const CapituloLibro = () => {
               />
             </div>
             <div className='inputControl'>
-              <label htmlFor='url'>URL del evento</label>
+              <label className='text__label' htmlFor='url'>URL del evento</label>
               <Field className='input' type='text' name='url' id='url' />
               <ErrorMessage className='error' name='url' component='span' />
             </div>
             <div className='inputControl'>
-              <label htmlFor='autor'>Tipo de autor</label>
+              <label className='text__label' htmlFor='autor'>Tipo de autor</label>
               <Field className='input' as='select' name='autor' id='autor'>
                 <option value=''>Seleccione una opción</option>
                 <option value='Principal'>Principal</option>
@@ -122,7 +122,7 @@ const CapituloLibro = () => {
               <ErrorMessage className='error' name='autor' component='span' />
             </div>
             <div className='inputControl'>
-              <label htmlFor='editorial'>Editorial</label>
+              <label className='text__label' htmlFor='editorial'>Editorial</label>
               <Field
                 className='input'
                 type='text'
@@ -136,18 +136,18 @@ const CapituloLibro = () => {
               />
             </div>
             <div className='inputControl'>
-              <label htmlFor='fecha'>Año de publicación</label>
+              <label className='text__label' htmlFor='fecha'>Año de publicación</label>
               <Field className='input' type='text' name='fecha' id='fecha' />
               <ErrorMessage className='error' name='fecha' component='span' />
             </div>
 
             <div className='inputControl'>
-              <label htmlFor='titulo1'>Titulo del Capitulo</label>
+              <label className='text__label' htmlFor='titulo1'>Titulo del Capitulo</label>
               <Field className='input' type='text' name='titulo' id='titulo1' />
               <ErrorMessage className='error' name='titulo' component='span' />
             </div>
             <div className='inputControl'>
-              <label htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
+              <label className='text__label' htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
               <Field className='input' as='select' name='tesis' id='tesis'>
                 <option value=''>Seleccione una opción</option>
                 <option value='Si'>Si</option>
