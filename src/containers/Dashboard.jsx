@@ -1,78 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/Dashboard.css';
 import Navbar from '../components/Navbar';
 import ListProduct from '../components/ListProduct';
 import Product from '../components/Product';
+import { ProductContext } from '../routes/App';
+
 const Dashboar = () => {
-  const [productList, setProductList] = useState([
-    {
-      'id': 1,
-      'titulo': 'Paralisis del sueño',
-      'congreso': 'Congreso de Viena',
-      'fecha': '07/07/1998',
-      'autor': 'principal',
-      'url': 'https://google.com',
-      'type': 'articuloCongreso',
-    },
-    {
-      'id': 2,
-      'titulo': 'Paralisis del sueño',
-      'fecha': '07/07/1998',
-      'autor': 'principal',
-      'url': 'https://google.com',
-      'type': 'articuloRevista',
-      'revista': {
-        'nombre': 'Science America',
-        'tipo': 'Tipo de revista',
-        'indice': 'indice',
-        'isnn': 'isnn',
-        'doi': 'DOI del articulo',
-      },
-    },
-    {
-      'id': 3,
-      'titulo': 'Paralisis del sueño',
-      'congreso': 'Congreso de Viena',
-      'fecha': '07/07/1998',
-      'autor': 'principal',
-      'url': 'https://google.com',
-      'type': 'capituloLibro',
-      'libro': {
-        'titulo': 'Titulo del libro',
-        'editorial': 'Limusa',
-        'edicion': '2da Edición',
-        'isbn': 'ISBN fda',
-      },
-    },
-    {
-      'id': 4,
-      'titulo': 'Paralisis del sueño',
-      'congreso': 'Congreso de Viena',
-      'fecha': '07/07/1998',
-      'autor': 'principal',
-      'url': 'https://google.com',
-      'type': 'Libro',
-      'libro': {
-        'editorial': 'Limusa',
-        'edicion': '2da Edición',
-        'isbn': 'ISBN fda',
-      },
-    },
-    {
-      'id': 5,
-      'titulo': 'Paralisis del sueño',
-      'congreso': 'Congreso de Viena',
-      'fecha': '07/07/1998',
-      'autor': 'principal',
-      'url': 'https://google.com',
-      'type': 'Desarrollo',
-      'licencia': 'MIT',
-      'desarrollo': {
-        'detalles': 'Detalles del producto',
-      },
-    },
-  ]);
+  const [productList, setProductList] = useState(
+    useContext(ProductContext).productState
+  );
   const [search, setSearch] = useState('all');
   const [number, setNumber] = useState({
     all: productList.length,

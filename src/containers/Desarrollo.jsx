@@ -1,22 +1,25 @@
 import React, { useContext } from 'react';
-import '../assets/styles/ArticuloCongreso.css';
 import { useHistory } from 'react-router-dom';
-import { Form, Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { ProductContext } from '../routes/App.js';
 import md5 from 'md5';
-const ArticuloCongreso = () => {
+import { ProductContext } from '../routes/App';
+
+const Desarrollo = () => {
   const productContext = useContext(ProductContext);
   const historia = useHistory();
   const initialValues = {
     id: 0,
     titulo: '',
-    congreso: '',
     fecha: '',
     autor: '',
     url: '',
     tesis: '',
-    type: 'articuloCongreso',
+    type: 'Desarrollo',
+    licencia: '',
+    desarrollo: {
+      detalles: '',
+    },
   };
   const onSubmit = (values) => {
     values.id = md5(values.titulo);
@@ -28,13 +31,15 @@ const ArticuloCongreso = () => {
   };
   const validationSchema = Yup.object({
     titulo: Yup.string().required('Required'),
-    congreso: Yup.string().required('Required'),
-    fecha: Yup.date().required('Required'),
+    fecha: Yup.string().required('Requires'),
     autor: Yup.string().required('Required'),
     tesis: Yup.string().required('Seleccione una opción'),
     url: Yup.string().url().required('Required'),
+    licencia: Yup.string().required('Required'),
+    desarrollo: Yup.object({
+      detalles: Yup.string().required('Required'),
+    }),
   });
-
   return (
     <Formik
       initialValues={initialValues}
@@ -45,10 +50,10 @@ const ArticuloCongreso = () => {
         <div className='formulario'>
           <div className='formulario__header'>
             <div className='formulario__header--texto'>
-              <h2>Seleccione un producto</h2>
+              <h2>Desarrollo de Software o Hardware</h2>
               <p>
                 Por favor llene el siguiente formulario para agreagar un
-                articulo de congreso
+                desarrollo
               </p>
             </div>
             <button className='btn' type='submit'>
@@ -57,31 +62,31 @@ const ArticuloCongreso = () => {
           </div>
           <div className='form'>
             <div className='inputControl'>
-              <label htmlFor='titulo'>Titulo del Articulo</label>
+              <label htmlFor='titulo'>Titulo del Desarrollo</label>
               <Field className='input' type='text' name='titulo' id='titulo' />
               <ErrorMessage className='error' name='titulo' component='span' />
             </div>
             <div className='inputControl'>
-              <label htmlFor='congreso'>Nombre del Congreso</label>
+              <label htmlFor='fecha'>Año de publicación</label>
+              <Field className='input' type='text' name='fecha' id='fecha' />
+              <ErrorMessage className='error' name='fecha' component='span' />
+            </div>
+            <div className='inputControl'>
+              <label htmlFor='licencia'>Licencia</label>
               <Field
                 className='input'
                 type='text'
-                name='congreso'
-                id='congreso'
+                name='licencia'
+                id='licencia'
               />
               <ErrorMessage
                 className='error'
-                name='congreso'
+                name='licencia'
                 component='span'
               />
             </div>
             <div className='inputControl'>
-              <label htmlFor='fecha'>Fecha del evento</label>
-              <Field className='input' type='date' name='fecha' id='fecha' />
-              <ErrorMessage className='error' name='fecha' component='span' />
-            </div>
-            <div className='inputControl'>
-              <label htmlFor='url'>URL del evento</label>
+              <label htmlFor='url'>URL del repositorio</label>
               <Field className='input' type='text' name='url' id='url' />
               <ErrorMessage className='error' name='url' component='span' />
             </div>
@@ -94,6 +99,7 @@ const ArticuloCongreso = () => {
               </Field>
               <ErrorMessage className='error' name='autor' component='span' />
             </div>
+
             <div className='inputControl'>
               <label htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
               <Field className='input' as='select' name='tesis' id='tesis'>
@@ -103,6 +109,20 @@ const ArticuloCongreso = () => {
               </Field>
               <ErrorMessage className='error' name='tesis' component='span' />
             </div>
+            <div className='inputControl'>
+              <label htmlFor='detalles'>Detalles del desarrollo</label>
+              <Field
+                className='input'
+                as='textarea'
+                name='desarrollo.detalles'
+                id='detalles'
+              />
+              <ErrorMessage
+                className='error'
+                name='desarrollo.detalles'
+                component='span'
+              />
+            </div>
           </div>
         </div>
       </Form>
@@ -110,4 +130,4 @@ const ArticuloCongreso = () => {
   );
 };
 
-export default ArticuloCongreso;
+export default Desarrollo;

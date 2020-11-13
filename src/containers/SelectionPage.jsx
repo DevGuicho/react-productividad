@@ -26,7 +26,7 @@ const SelectionPage = () => {
             </Link>
           </article>
           <article className='btnProduct'>
-            <Link to='/' className='btnProduct__link'>
+            <Link to='/art-revista' className='btnProduct__link'>
               <img
                 src={ArticuloRevista}
                 alt=''
@@ -36,7 +36,7 @@ const SelectionPage = () => {
             </Link>
           </article>
           <article className='btnProduct'>
-            <Link to='/' className='btnProduct__link'>
+            <Link to='/capitulo-libro' className='btnProduct__link'>
               <img
                 src={CapituloLibro}
                 alt=''
@@ -46,13 +46,13 @@ const SelectionPage = () => {
             </Link>
           </article>
           <article className='btnProduct'>
-            <Link to='/' className='btnProduct__link'>
+            <Link to='/libro' className='btnProduct__link'>
               <img src={Libro} alt='' className='btnProduct__Link--img' />
               <p className='btnProduct__Link--text'>Libro</p>
             </Link>
           </article>
           <article className='btnProduct'>
-            <Link to='/' className='btnProduct__link'>
+            <Link to='/desarrollo' className='btnProduct__link'>
               <img src={Desarrollo} alt='' className='btnProduct__Link--img' />
               <p className='btnProduct__Link--text'>Desarrollo</p>
             </Link>

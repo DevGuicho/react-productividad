@@ -70,10 +70,13 @@ const Product = ({ product, type }) => {
       <div className='product__details'>
         <ul className='product__details--list'>
           {firstItem}
-          <li className='details__principal'>
-            <i className='fas fa-calendar-alt'></i>
-            {product.fecha}
-          </li>
+
+          {product.fecha ? (
+            <li className='details__principal'>
+              <i className='fas fa-calendar-alt'></i>
+              {product.fecha}
+            </li>
+          ) : null}
           <li className='details__principal'>
             <i className='fas fa-user-edit'></i>
             {product.autor}

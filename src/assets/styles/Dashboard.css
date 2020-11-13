@@ -30,6 +30,9 @@
   text-decoration: none;
   background: var(--bg-guinda);
   color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 .btn i {
   margin-right: 10px;
