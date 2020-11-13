@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import '../assets/styles/components/Product.css';
 import { ProductContext } from '../routes/App';
 
-const Product = ({ product, type }) => {
+const Product = ({ product, type, isCordinator }) => {
   let route = '';
   const productContext = useContext(ProductContext);
   const history = useHistory();
@@ -81,10 +81,14 @@ const Product = ({ product, type }) => {
     <article className={`product__article ${type}`}>
       <div className='product__article--header'>
         <h3 className='product__title'>{product.titulo}</h3>
-        <div>
-          <i className='fas fa-trash-alt click' onClick={deleteProduct}></i>
-          <i className='fas fa-pen click' onClick={editProduct}></i>
-        </div>
+        {isCordinator ? (
+          <div></div>
+        ) : (
+          <div>
+            <i className='fas fa-trash-alt click' onClick={deleteProduct}></i>
+            <i className='fas fa-pen click' onClick={editProduct}></i>
+          </div>
+        )}
       </div>
       <div className='product__details'>
         <ul className='product__details--list'>

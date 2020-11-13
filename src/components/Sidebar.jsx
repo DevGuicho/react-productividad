@@ -17,7 +17,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to='/'>
+            <Link to='/coordinador'>
               <i className='fas fa-users'></i>
             </Link>
           </li>

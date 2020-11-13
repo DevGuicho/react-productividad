@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../assets/styles/components/Navbar.css';
 
-const Navbar = ({ selector, number }) => {
+const NavbarCoordinador = ({ selector, number }) => {
   const [selection, setSelection] = useState({
     all: true,
     articles: false,
@@ -24,7 +24,7 @@ const Navbar = ({ selector, number }) => {
         books: false,
         developments: false,
       });
-      selector(sel);
+      selector('maestria');
     } else if (sel === 'libros') {
       setSelection({
         all: false,
@@ -32,15 +32,7 @@ const Navbar = ({ selector, number }) => {
         books: true,
         developments: false,
       });
-      selector(sel);
-    } else if (sel === 'desarrollos') {
-      setSelection({
-        all: false,
-        articles: false,
-        books: false,
-        developments: true,
-      });
-      selector(sel);
+      selector('doctorado');
     }
   };
   return (
@@ -63,7 +55,7 @@ const Navbar = ({ selector, number }) => {
           onClick={() => handleClick('articulos')}
         >
           <div className='a'>
-            Articulos<span>{number.articulos}</span>
+            Maestria<span>{number.maestria}</span>
           </div>
         </li>
         <li
@@ -73,17 +65,7 @@ const Navbar = ({ selector, number }) => {
           onClick={() => handleClick('libros')}
         >
           <div className='a'>
-            Libros<span>{number.libros}</span>
-          </div>
-        </li>
-        <li
-          className={`productTable__nav--item ${
-            selection.developments ? 'selected' : ''
-          }`}
-          onClick={() => handleClick('desarrollos')}
-        >
-          <div className='a'>
-            Desarrollo<span>{number.desarrollos}</span>
+            Doctorado<span>{number.doctorado}</span>
           </div>
         </li>
       </ul>
@@ -91,4 +73,4 @@ const Navbar = ({ selector, number }) => {
   );
 };
 
-export default Navbar;
+export default NavbarCoordinador;

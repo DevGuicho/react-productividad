@@ -1,13 +1,14 @@
-import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../assets/styles/Dashboard.css';
 import Navbar from '../components/Navbar';
 import ListProduct from '../components/ListProduct';
 import Product from '../components/Product';
-import { ProductContext } from '../routes/App';
 
-const Dashboar = () => {
-  const productList = useContext(ProductContext).productState.productos;
+const DashboardUserCord = () => {
+  const location = useLocation();
+  const productList = location.state.params.productos;
+  const usuario = location.state.params;
   const [search, setSearch] = useState('all');
   const number = {
     all: productList.length,
@@ -53,9 +54,7 @@ const Dashboar = () => {
       <div className='productTable'>
         <div className='productTable__header'>
           <h2>Productividad</h2>
-          <Link to='/select' className='btn'>
-            <i className='fas fa-plus'></i>Agregar producto
-          </Link>
+          <p>{usuario.nombre}</p>
         </div>
         <Navbar selector={setSearch} number={number} />
         <ListProduct>
@@ -64,6 +63,7 @@ const Dashboar = () => {
               key={producto.id}
               product={producto}
               type={producto.type}
+              isCordinator
             />
           ))}
           {filteredProducts.length === 0 ? (
@@ -71,8 +71,33 @@ const Dashboar = () => {
           ) : null}
         </ListProduct>
       </div>
+      <article className='userCard'>
+        <div className='userCard__avatar'>
+          <i className='fas fa-user userCard__avatar--icon'></i>
+        </div>
+        <div className='userCard__datos'>
+          <ol>
+            <li>
+              <i className='fas fa-user'></i>
+              <span>{usuario.rfc}</span>
+            </li>
+            <li>
+              <i className='fas fa-user'></i>
+              <span>{usuario.curp}</span>
+            </li>
+            <li>
+              <i className='fas fa-user'></i>
+              <span>{usuario.email}</span>
+            </li>
+            <li>
+              <i className='fas fa-user'></i>
+              <span>{usuario.estudiante}</span>
+            </li>
+          </ol>
+        </div>
+      </article>
     </section>
   );
 };
 
-export default Dashboar;
+export default DashboardUserCord;
