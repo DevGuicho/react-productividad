@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../assets/styles/Dashboard.css';
+import '../assets/styles/UserCord.css';
 import Navbar from '../components/Navbar';
 import ListProduct from '../components/ListProduct';
 import Product from '../components/Product';
@@ -52,9 +53,13 @@ const DashboardUserCord = () => {
   return (
     <section className='main'>
       <div className='productTable'>
-        <div className='productTable__header'>
-          <h2>Productividadf</h2>
-          <p>{usuario.nombre}</p>
+        <div className='productTable__headerUC'>
+          <div className='headertext'>
+            <h2>Productividad</h2>
+          </div>
+          <div className='headertext'>
+            <p>{usuario.nombre}</p>
+          </div>
         </div>
         <Navbar selector={setSearch} number={number} />
         <ListProduct>
@@ -72,28 +77,33 @@ const DashboardUserCord = () => {
         </ListProduct>
       </div>
       <article className='userCard'>
-        <div className='userCard__avatar'>
-          <i className='fas fa-user userCard__avatar--icon'></i>
-        </div>
-        <div className='userCard__datos'>
-          <ol>
-            <li>
-              <i className='fas fa-user'></i>
-              <span>{usuario.rfc}</span>
-            </li>
-            <li>
-              <i className='fas fa-user'></i>
-              <span>{usuario.curp}</span>
-            </li>
-            <li>
-              <i className='fas fa-user'></i>
-              <span>{usuario.email}</span>
-            </li>
-            <li>
-              <i className='fas fa-user'></i>
-              <span>{usuario.estudiante}</span>
-            </li>
-          </ol>
+        <div className='userCard__outline'>
+          <div className='userCard__avatar'>
+            <i className='fas fa-user userCard__avatar--icon'></i>
+          </div>
+          <div className='userCard__datos'>
+            <ol className="dataUser">
+              <li className="userName"> 
+              <span>{usuario.nombre}</span>
+              </li>
+              <li>
+                <i className='fas fa-fingerprint'></i>
+                <span>{usuario.rfc}</span>
+              </li>
+              <li>
+                <i className='fas fa-id-card'></i>
+                <span>{usuario.curp}</span>
+              </li>
+              <li>
+                <i className='fas fa-envelope'></i>
+                <span>{usuario.email}</span>
+              </li>
+              <li>
+                <i className='fas fa-graduation-cap'></i>
+                <span>{usuario.estudiante}</span>
+              </li>
+            </ol>
+          </div>
         </div>
       </article>
     </section>

@@ -12,7 +12,7 @@ const SelectionPage = () => {
     <section className='selectPage'>
       <div className='selectPage__container'>
         <div className='selectPage__header'>
-          <h2 className='selectPage__title'>Seleccione un producto</h2>
+          <h2 className='selectPage__title'>Seleccione un Producto</h2>
         </div>
         <div className='selectPage__Grid'>
           <article className='btnProduct'>

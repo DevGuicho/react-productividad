@@ -1,22 +1,67 @@
 .form{
+  display: flex;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  
+}
+/* Tamaño del scroll */
+.form::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Estilos barra (thumb) de scroll */
+.form::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.form::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.form::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+.form::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+.form::-webkit-scrollbar-track:hover,
+.form::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+.outline__form{
   width: 100%;
-  height: 700px;
-  background: white;
   border: 1px solid #28293456;
   border-radius: 15px;
-  margin-bottom: 30px;
-  padding: 25px 30px 25px 60px;
-  display: grid;
-  grid-template-columns: repeat(2, auto [col-start]);
-  grid-template-rows: auto;
+  background: white;
+  height: calc(90vh);
+  
+  display: flex;
+  flex-direction: column;
   
 }
+
+.input__Row{
+  width: 100%;  
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  
+}
+
 .inputControl {
-  padding-right: 30px;
-  position: relative;
-  margin-top: 30px;
-  
+  width: 50%;
+  padding: 20px;
 }
+
 .text__label {
   display: block;
   font-size: 14px;
