@@ -1,4 +1,4 @@
-.form{
+.form {
   width: 100%;
   height: 700px;
   background: white;
@@ -9,13 +9,11 @@
   display: grid;
   grid-template-columns: repeat(2, auto [col-start]);
   grid-template-rows: auto;
-  
 }
 .inputControl {
   padding-right: 30px;
   position: relative;
   margin-top: 30px;
-  
 }
 .text__label {
   display: block;
@@ -24,13 +22,13 @@
   color: #282934;
   margin-bottom: 10px;
 }
-.input__group{
+.input__group {
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
 }
-.input{
-  font-family: "Open Sans", sans-serif;
+.input {
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   width: 100%;
   height: 40px;
@@ -41,7 +39,7 @@
   padding: 0 10px;
   transition: 0.3s ease all;
 }
-.input__validation{
+.input__validation {
   position: absolute;
   right: 45px;
   bottom: 33px;
@@ -49,12 +47,12 @@
   font-size: 16px;
   opacity: 0;
 }
-.error{
+.error {
   padding: 10px;
   text-align: center;
   border-radius: 5px;
   font-weight: 600;
-  color: #D4100B;
+  color: #d4100b;
 }
 .input:focus {
   border: 1px solid #1d82ef7a;
