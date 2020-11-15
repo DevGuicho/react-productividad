@@ -3,31 +3,78 @@
   display: grid;
   grid-template-columns: minmax(auto, 95%);
   justify-content: center;
+  
+  display: flex
 }
 
 .selectPage__container {
   display: flex;
   flex-direction: column;
+  
 }
 .selectPage__header {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
+  width: 83%;
   height: 56px;
   margin-top: 25px;
   margin-bottom: 40px;
   border-bottom: 2px solid #727272;
+  
+  margin-left: 20px;
+  
 }
 .selectPage__title {
   font-size: 2.4rem;
   font-weight: bold;
+  
 }
+/*----AQUI----*/
 .selectPage__Grid {
   display: flex;
   flex-flow: row wrap;
   gap: 50px;
+  
+  overflow-y: scroll;
+  padding-left: 20px;
+  width: 85%;
+  overscroll-behavior-y: contain;
+  height: calc(70vh);
 }
+
+/* Tamaño del scroll */
+.selectPage__Grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Estilos barra (thumb) de scroll */
+.selectPage__Grid::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.selectPage__Grid::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.selectPage__Grid::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos track de scroll */
+.selectPage__Grid::-webkit-scrollbar-track {
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+
+.selectPage__Grid::-webkit-scrollbar-track:hover,
+.selectPage__Grid::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+
+
 .btnProduct {
   display: flex;
   justify-content: center;

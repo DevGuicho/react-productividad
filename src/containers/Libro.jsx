@@ -4,7 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import md5 from 'md5';
 import { ProductContext } from '../routes/App';
-
+import '../assets/styles/Libro.css'
 const Libro = () => {
   const productContext = useContext(ProductContext);
   const historia = useHistory();
@@ -73,81 +73,91 @@ const Libro = () => {
             </button>
           </div>
           <div className='form'>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='titulo'>Titulo del Libro</label>
-              <Field className='input' type='text' name='titulo' id='titulo' />
-              <ErrorMessage className='error' name='titulo' component='span' />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='editorial'>Editorial</label>
-              <Field
-                className='input'
-                type='text'
-                name='libro.editorial'
-                id='editorial'
-              />
-              <ErrorMessage
-                className='error'
-                name='libro.editorial'
-                component='span'
-              />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='edicion'>Edicion</label>
-              <Field
-                className='input'
-                type='text'
-                name='libro.edicion'
-                id='edicion'
-              />
-              <ErrorMessage
-                className='error'
-                name='libro.edicion'
-                component='span'
-              />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='fecha'>Año de publicación</label>
-              <Field className='input' type='text' name='fecha' id='fecha' />
-              <ErrorMessage className='error' name='fecha' component='span' />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='isbn'>ISBN</label>
-              <Field
-                className='input'
-                type='text'
-                name='libro.isbn'
-                id='isbn'
-              />
-              <ErrorMessage
-                className='error'
-                name='libro.isbn'
-                component='span'
-              />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='url'>URL del evento</label>
-              <Field className='input' type='text' name='url' id='url' />
-              <ErrorMessage className='error' name='url' component='span' />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='autor'>Tipo de autor</label>
-              <Field className='input' as='select' name='autor' id='autor'>
-                <option value=''>Seleccione una opción</option>
-                <option value='Principal'>Principal</option>
-                <option value='Secunadario'>Secundario</option>
-              </Field>
-              <ErrorMessage className='error' name='autor' component='span' />
-            </div>
-
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
-              <Field className='input' as='select' name='tesis' id='tesis'>
-                <option value=''>Seleccione una opción</option>
-                <option value='Si'>Si</option>
-                <option value='No'>No</option>
-              </Field>
-              <ErrorMessage className='error' name='tesis' component='span' />
+            <div className='outline__formL'>
+              <div className='input__RowL'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='titulo'>Titulo del Libro</label>
+                  <Field className='input' type='text' name='titulo' id='titulo' />
+                  <ErrorMessage className='error' name='titulo' component='span' />
+                </div>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='editorial'>Editorial</label>
+                  <Field
+                    className='input'
+                    type='text'
+                    name='libro.editorial'
+                    id='editorial'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='libro.editorial'
+                    component='span'
+                  />
+                </div>
+              </div>
+              <div className='input__RowL'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='edicion'>Edicion</label>
+                  <Field
+                    className='input'
+                    type='text'
+                    name='libro.edicion'
+                    id='edicion'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='libro.edicion'
+                    component='span'
+                  />
+                </div>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='fecha'>Año de publicación</label>
+                  <Field className='input' type='text' name='fecha' id='fecha' />
+                  <ErrorMessage className='error' name='fecha' component='span' />
+                </div>
+              </div>
+              <div className='input__RowL'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='isbn'>ISBN</label>
+                  <Field
+                    className='input'
+                    type='text'
+                    name='libro.isbn'
+                    id='isbn'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='libro.isbn'
+                    component='span'
+                  />
+                </div>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='url'>URL del evento</label>
+                  <Field className='input' type='text' name='url' id='url' />
+                  <ErrorMessage className='error' name='url' component='span' />
+                </div>
+              </div>
+              <div className='input__RowL'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='autor'>Tipo de autor</label>
+                  <Field className='input' as='select' name='autor' id='autor'>
+                    <option value=''>Seleccione una opción</option>
+                    <option value='Principal'>Principal</option>
+                    <option value='Secunadario'>Secundario</option>
+                  </Field>
+                  <ErrorMessage className='error' name='autor' component='span' />
+                </div>
+                
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
+                  <Field className='input' as='select' name='tesis' id='tesis'>
+                    <option value=''>Seleccione una opción</option>
+                    <option value='Si'>Si</option>
+                    <option value='No'>No</option>
+                  </Field>
+                  <ErrorMessage className='error' name='tesis' component='span' />
+                </div>
+              </div>
             </div>
           </div>
         </div>

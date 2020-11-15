@@ -1,0 +1,78 @@
+.productTable__headerUC {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 25px;
+  
+}
+.headertext{
+  width: 100%;
+  
+}
+.productTable__headerUC h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.productTable__headerUC p{
+  font-size: 2.4rem;
+  font-weight: bold;
+  font-weight: 600;
+}
+
+
+.userCard__outline{
+  margin: 35% 5% 10% 1%;
+  height: calv(40vm);
+  background: var(--bg-guinda);
+  border-radius: 15px;
+  
+  display: flex;
+  flex-direction: column;
+}
+.userCard__avatar{
+  width: 100%;
+  height: 30%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  
+}
+.userCard__avatar i{
+  color: white;
+  align-self: center;
+  font-size: 4rem;
+ 
+
+}
+
+.userCard__datos{
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+}
+.dataUser{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  
+}
+.userName{
+  align-self: center;
+}
+.dataUser li{
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  padding-bottom: 10px;
+}
+.dataUser i{
+  padding-left: 50px;
+  padding-right: 10px;
+  font-size: 2rem;
+}
+

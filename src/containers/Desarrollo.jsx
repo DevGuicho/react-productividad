@@ -72,67 +72,77 @@ const Desarrollo = () => {
             </button>
           </div>
           <div className='form'>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='titulo'>Titulo del Desarrollo</label>
-              <Field className='input' type='text' name='titulo' id='titulo' />
-              <ErrorMessage className='error' name='titulo' component='span' />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='fecha'>Año de publicación</label>
-              <Field className='input' type='text' name='fecha' id='fecha' />
-              <ErrorMessage className='error' name='fecha' component='span' />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='licencia'>Licencia</label>
-              <Field
-                className='input'
-                type='text'
-                name='licencia'
-                id='licencia'
-              />
-              <ErrorMessage
-                className='error'
-                name='licencia'
-                component='span'
-              />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='url'>URL del repositorio</label>
-              <Field className='input' type='text' name='url' id='url' />
-              <ErrorMessage className='error' name='url' component='span' />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='autor'>Tipo de autor</label>
-              <Field className='input' as='select' name='autor' id='autor'>
-                <option value=''>Seleccione una opción</option>
-                <option value='Principal'>Principal</option>
-                <option value='Secunadario'>Secundario</option>
-              </Field>
-              <ErrorMessage className='error' name='autor' component='span' />
-            </div>
-
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
-              <Field className='input' as='select' name='tesis' id='tesis'>
-                <option value=''>Seleccione una opción</option>
-                <option value='Si'>Si</option>
-                <option value='No'>No</option>
-              </Field>
-              <ErrorMessage className='error' name='tesis' component='span' />
-            </div>
-            <div className='inputControl'>
-              <label className='text__label' htmlFor='detalles'>Detalles del desarrollo</label>
-              <Field
-                className='input'
-                as='textarea'
-                name='desarrollo.detalles'
-                id='detalles'
-              />
-              <ErrorMessage
-                className='error'
-                name='desarrollo.detalles'
-                component='span'
-              />
+            <div className='outline__formL'>
+              <div className='input__RowL'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='titulo'>Titulo del Desarrollo</label>
+                  <Field className='input' type='text' name='titulo' id='titulo' />
+                  <ErrorMessage className='error' name='titulo' component='span' />
+                </div>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='fecha'>Año de publicación</label>
+                  <Field className='input' type='text' name='fecha' id='fecha' />
+                  <ErrorMessage className='error' name='fecha' component='span' />
+                </div>
+              </div>
+              <div className='input__RowL'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='licencia'>Licencia</label>
+                  <Field
+                    className='input'
+                    type='text'
+                    name='licencia'
+                    id='licencia'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='licencia'
+                    component='span'
+                  />
+                </div>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='url'>URL del repositorio</label>
+                  <Field className='input' type='text' name='url' id='url' />
+                  <ErrorMessage className='error' name='url' component='span' />
+                </div>
+              </div>
+              <div className='input__RowL'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='autor'>Tipo de autor</label>
+                  <Field className='input' as='select' name='autor' id='autor'>
+                    <option value=''>Seleccione una opción</option>
+                    <option value='Principal'>Principal</option>
+                    <option value='Secunadario'>Secundario</option>
+                  </Field>
+                  <ErrorMessage className='error' name='autor' component='span' />
+                </div>
+                
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
+                  <Field className='input' as='select' name='tesis' id='tesis'>
+                    <option value=''>Seleccione una opción</option>
+                    <option value='Si'>Si</option>
+                    <option value='No'>No</option>
+                  </Field>
+                  <ErrorMessage className='error' name='tesis' component='span' />
+                </div>
+              </div>
+             <div className='input__RowL'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='detalles'>Detalles del desarrollo</label>
+                  <Field
+                    className='input'
+                    as='textarea'
+                    name='desarrollo.detalles'
+                    id='detalles'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='desarrollo.detalles'
+                    component='span'
+                  />
+                </div>
+             </div>
             </div>
           </div>
         </div>
