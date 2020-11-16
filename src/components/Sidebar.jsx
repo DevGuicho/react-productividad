@@ -1,7 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/components/Sidebar.css';
+import { useDispatch, useStore } from '../store/StoreProvider';
 const Sidebar = () => {
+  const { place } = useStore();
+  const dispatch = useDispatch();
+  const handleClick = (e) => {
+    if (e === 'home') {
+      dispatch({
+        type: 'SET_PLACE',
+        value: {
+          home: true,
+          users: false,
+          products: false,
+          config: false,
+        },
+      });
+    } else if (e === 'products') {
+      dispatch({
+        type: 'SET_PLACE',
+        value: {
+          home: false,
+          users: false,
+          products: true,
+          config: false,
+        },
+      });
+    } else if (e === 'users') {
+      dispatch({
+        type: 'SET_PLACE',
+        value: {
+          home: false,
+          users: true,
+          products: false,
+          config: false,
+        },
+      });
+    } else if (e === 'config') {
+      dispatch({
+        type: 'SET_PLACE',
+        value: {
+          home: false,
+          users: false,
+          products: false,
+          config: true,
+        },
+      });
+    }
+  };
   return (
     <aside className='aside'>
       <nav className='aside__nav'>
@@ -11,23 +57,23 @@ const Sidebar = () => {
               <i className='fas fa-arrow-left'></i>
             </Link>
           </li>
-          <li>
-            <Link to='/'>
+          <li className={`${place.home ? 'selection' : ''}`}>
+            <Link to='/' onClick={() => handleClick('home')}>
               <i className='fas fa-home'></i>
             </Link>
           </li>
-          <li>
-            <Link to='/coordinador'>
+          <li className={`${place.users ? 'selection' : ''}`}>
+            <Link to='/coordinador' onClick={() => handleClick('users')}>
               <i className='fas fa-users'></i>
             </Link>
           </li>
-          <li>
-            <Link to='/'>
+          <li className={`${place.products ? 'selection' : ''}`}>
+            <Link to='/' onClick={() => handleClick('products')}>
               <i className='fas fa-list-alt'></i>
             </Link>
           </li>
-          <li>
-            <Link to='/'>
+          <li className={`${place.config ? 'selection' : ''}`}>
+            <Link to='/' onClick={() => handleClick('config')}>
               <i className='fas fa-cog'></i>
             </Link>
           </li>

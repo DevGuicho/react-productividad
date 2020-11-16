@@ -111,6 +111,12 @@ const initialStore = {
       ],
     },
   ],
+  place: {
+    home: true,
+    users: false,
+    products: false,
+    config: false,
+  },
 };
 
 const storeReducer = (state, action) => {
@@ -131,6 +137,11 @@ const storeReducer = (state, action) => {
       );
       state.productos[index] = action.value;
       return state;
+    case 'SET_PLACE':
+      return {
+        ...state,
+        place: action.value,
+      };
     default:
       break;
   }

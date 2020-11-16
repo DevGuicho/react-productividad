@@ -86,7 +86,7 @@ const Product = ({ product, type, isCordinator }) => {
       );
     }
   };
-  const [firstItem, setFirstItem] = useState(select(product));
+  const [firstItem] = useState(select(product));
   return (
     <article className={`product__article`}>
       <div className={`product__img--${type}`}>{img}</div>
