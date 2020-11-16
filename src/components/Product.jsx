@@ -1,14 +1,20 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../assets/styles/components/Product.css';
-import { ProductContext } from '../routes/App';
-
+import { useDispatch } from '../store/StoreProvider';
+import imgArtCongres from '../assets/img/articuloCongreso.png';
+import imgArtMagazine from '../assets/img/articuloRevista.png';
+import imgChapBook from '../assets/img/capituloLibro.png';
+import imgBook from '../assets/img/libro.png';
+import imgDevelop from '../assets/img/desarrollo.png';
 const Product = ({ product, type, isCordinator }) => {
   let route = '';
-  const productContext = useContext(ProductContext);
+  let tag = '';
+  let img = '';
+  const dispatch = useDispatch();
   const history = useHistory();
   const deleteProduct = async () => {
-    await productContext.productDispatch({
+    await dispatch({
       type: 'DELETE_PRODUCT',
       value: product.id,
     });
@@ -19,101 +25,96 @@ const Product = ({ product, type, isCordinator }) => {
   const select = (product) => {
     if (type === 'articuloCongreso') {
       route = '/art-congreso';
+      tag = 'Articulo de congreso';
+      img = (
+        <img src={imgArtCongres} alt='' className='product__article--img0' />
+      );
       return (
-        <li className='details__principal'>
-          <i className='fas fa-users'></i>
-          {product.congreso}
-        </li>
+        <ul className='product__details--list'>
+          <li>{product.congreso}</li>
+          <li>{product.fecha}</li>
+        </ul>
       );
     } else if (type === 'articuloRevista') {
       route = '/art-revista';
+      tag = 'Articulo en Revista';
+      img = (
+        <img src={imgArtMagazine} alt='' className='product__article--img' />
+      );
       return (
-        <li className='details__principal'>
-          <i className='fas fa-globe'></i>
-          <ul className='product__details--book'>
-            <li>{product.revista.nombre}</li>
-            <li>{product.revista.tipo}</li>
-            <li>{product.revista.indice}</li>
-            <li>{product.revista.iss}</li>
-            <li>{product.revista.doi}</li>
-          </ul>
-        </li>
+        <ul className='product__details--list'>
+          <li>{product.revista.nombre}</li>
+          <li>{product.revista.tipo}</li>
+          <li>{product.revista.indice}</li>
+          <li>{product.revista.iss}</li>
+          <li>{product.revista.doi}</li>
+        </ul>
       );
     } else if (type === 'capituloLibro') {
       route = '/capitulo-libro';
+      tag = 'Capitulo de Libro';
+      img = <img src={imgChapBook} alt='' className='product__article--img' />;
       return (
-        <li className='details__principal'>
-          <i className='fas fa-globe'></i>
-          <ul className='product__details--book'>
-            <li>{product.libro.titulo}</li>
-            <li>{product.libro.editorial}</li>
-            <li>{product.libro.edicion}</li>
-            <li>{product.libro.isbn}</li>
-          </ul>
-        </li>
+        <ul className='product__details--list'>
+          <li>{product.libro.titulo}</li>
+          <li>{product.libro.editorial}</li>
+          <li>{product.libro.edicion}</li>
+          <li>{product.fecha}</li>
+          <li>{product.libro.isbn}</li>
+        </ul>
       );
     } else if (type === 'Libro') {
       route = '/libro';
+      tag = 'Libro';
+      img = <img src={imgBook} alt='' className='product__article--img' />;
       return (
-        <li className='details__principal'>
-          <i className='fas fa-globe'></i>
-          <ul className='product__details--book'>
-            <li>{product.libro.editorial}</li>
-            <li>{product.libro.edicion}</li>
-            <li>{product.libro.isbn}</li>
-          </ul>
-        </li>
+        <ul className='product__details--list'>
+          <li>{product.libro.editorial}</li>
+          <li>{product.libro.edicion}</li>
+          <li>{product.fecha}</li>
+          <li>{product.libro.isbn}</li>
+        </ul>
       );
     } else if (type === 'Desarrollo') {
       route = '/desarrollo';
+      tag = 'Desarrollo';
+      img = <img src={imgDevelop} alt='' className='product__article--img' />;
       return (
-        <li className='details__principal'>
-          <i className='fas fa-globe'></i>
-          <ul className='product__details--book'>
-            <li>{product.desarrollo.detalles}</li>
-          </ul>
-        </li>
+        <div className='product__details--develop'>
+          <p>{product.desarrollo.detalles}</p>
+        </div>
       );
     }
   };
   const [firstItem, setFirstItem] = useState(select(product));
   return (
-    <article className={`product__article ${type}`}>
+    <article className={`product__article`}>
+      <div className={`product__img--${type}`}>{img}</div>
       <div className='product__article--header'>
-        <h3 className='product__title'>{product.titulo}</h3>
+        <div className={`header__tag ${type}`}>
+          <h3 className='product__title'>{product.titulo}</h3>
+          <i className='fas fa-tag i'></i>
+          <span>{tag}</span>
+        </div>
         {isCordinator ? (
           <div></div>
         ) : (
-          <div>
+          <div className='panelProduct'>
             <i className='fas fa-trash-alt click' onClick={deleteProduct}></i>
             <i className='fas fa-pen click' onClick={editProduct}></i>
           </div>
         )}
       </div>
       <div className='product__details'>
-        <ul className='product__details--list'>
-          {firstItem}
-
-          {product.fecha ? (
-            <li className='details__principal'>
-              <i className='fas fa-calendar-alt'></i>
-              {product.fecha}
-            </li>
-          ) : null}
-          <li className='details__principal'>
-            <i className='fas fa-user-edit'></i>
-            {product.autor}
+        {firstItem}
+        <ul className='product__details--general'>
+          <li>{product.autor}</li>
+          {product.licencia ? <li>{product.fecha}</li> : null}
+          <li>{product.tesis}</li>
+          {product.licencia ? <li>{product.licencia}</li> : null}
+          <li>
+            <a href={product.url}>Link del Repositorio</a>
           </li>
-          <li className='details__principal'>
-            <i className='fas fa-globe'></i>
-            <a href={product.url}>Link del sitio</a>
-          </li>
-          {product.licencia ? (
-            <li className='details__principal'>
-              <i className='fas fa-globe'></i>
-              {product.licencia}
-            </li>
-          ) : null}
         </ul>
       </div>
     </article>

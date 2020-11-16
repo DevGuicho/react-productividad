@@ -4,10 +4,11 @@ import '../assets/styles/Dashboard.css'; //Importar Estilos a un Componente
 import Navbar from '../components/Navbar';
 import ListProduct from '../components/ListProduct';
 import Product from '../components/Product';
-import { ProductContext } from '../routes/App';
+import { useStore } from '../store/StoreProvider';
 // Containears-> Componentes Mas Grandes
 const Dashboar = () => {
-  const productList = useContext(ProductContext).productState.productos;
+  const productList = useStore().productos;
+
   const [search, setSearch] = useState('all');
   const number = {
     all: productList.length,

@@ -1,13 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/Dashboard.css';
 import ListProduct from '../components/ListProduct';
 import User from '../components/Users';
-import { ProductContext } from '../routes/App';
 import NavbarCoordinador from '../components/NavbarCoordinador';
+import { useStore } from '../store/StoreProvider';
 
 const DashboardCordinator = () => {
-  const productList = useContext(ProductContext).productState.usuarios;
+  const productList = useStore().usuarios;
   const [search, setSearch] = useState('all');
   const number = {
     all: productList.length,

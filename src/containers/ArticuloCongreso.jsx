@@ -3,10 +3,10 @@ import '../assets/styles/ArticuloCongreso.css';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { ProductContext } from '../routes/App.js';
 import md5 from 'md5';
+import { useDispatch } from '../store/StoreProvider';
 const ArticuloCongreso = () => {
-  const productContext = useContext(ProductContext);
+  const dispatch = useDispatch();
   const historia = useHistory();
   const location = useLocation();
   const initialValues = location.state
@@ -23,13 +23,13 @@ const ArticuloCongreso = () => {
       };
   const onSubmit = (values) => {
     if (location.state) {
-      productContext.productDispatch({
+      dispatch({
         type: 'UPDATE_PRODUCT',
         value: values,
       });
     } else {
       values.id = md5(values.titulo);
-      productContext.productDispatch({
+      dispatch({
         type: 'ADD_PRODUCT',
         value: values,
       });
@@ -66,17 +66,30 @@ const ArticuloCongreso = () => {
               <i className='fas fa-save'></i>Guardar producto
             </button>
           </div>
-          
+
           <div className='form'>
             <div className='outline__formAC'>
               <div className='input__RowAC'>
                 <div className='inputControl'>
-                  <label className='text__label' htmlFor='titulo'>Titulo del Articulo</label>
-                  <Field className='input' type='text' name='titulo' id='titulo' />
-                  <ErrorMessage className='error' name='titulo' component='span' />
+                  <label className='text__label' htmlFor='titulo'>
+                    Titulo del Articulo
+                  </label>
+                  <Field
+                    className='input'
+                    type='text'
+                    name='titulo'
+                    id='titulo'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='titulo'
+                    component='span'
+                  />
                 </div>
                 <div className='inputControl'>
-                  <label className='text__label' htmlFor='congreso'>Nombre del Congreso</label>
+                  <label className='text__label' htmlFor='congreso'>
+                    Nombre del Congreso
+                  </label>
                   <Field
                     className='input'
                     type='text'
@@ -92,34 +105,59 @@ const ArticuloCongreso = () => {
               </div>
               <div className='input__RowAC'>
                 <div className='inputControl'>
-                  <label className='text__label' htmlFor='fecha'>Fecha del evento</label>
-                  <Field className='input' type='date' name='fecha' id='fecha' />
-                  <ErrorMessage className='error' name='fecha' component='span' />
+                  <label className='text__label' htmlFor='fecha'>
+                    Fecha del evento
+                  </label>
+                  <Field
+                    className='input'
+                    type='date'
+                    name='fecha'
+                    id='fecha'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='fecha'
+                    component='span'
+                  />
                 </div>
                 <div className='inputControl'>
-                  <label  className='text__label' htmlFor='url'>URL del evento</label>
+                  <label className='text__label' htmlFor='url'>
+                    URL del evento
+                  </label>
                   <Field className='input' type='text' name='url' id='url' />
                   <ErrorMessage className='error' name='url' component='span' />
                 </div>
               </div>
               <div className='input__RowAC'>
                 <div className='inputControl'>
-                  <label className='text__label' htmlFor='autor'>Tipo de autor</label>
+                  <label className='text__label' htmlFor='autor'>
+                    Tipo de autor
+                  </label>
                   <Field className='input' as='select' name='autor' id='autor'>
                     <option value=''>Seleccione una opción</option>
-                    <option value='Principal'>Principal</option>
-                    <option value='Secunadario'>Secundario</option>
+                    <option value='Autor Principal'>Principal</option>
+                    <option value='Coautor'>Secundario</option>
                   </Field>
-                  <ErrorMessage className='error' name='autor' component='span' />
+                  <ErrorMessage
+                    className='error'
+                    name='autor'
+                    component='span'
+                  />
                 </div>
                 <div className='inputControl'>
-                  <label  className='text__label' htmlFor='tesis'>¿Esta relacionado con su tesis?</label>
+                  <label className='text__label' htmlFor='tesis'>
+                    ¿Esta relacionado con su tesis?
+                  </label>
                   <Field className='input' as='select' name='tesis' id='tesis'>
                     <option value=''>Seleccione una opción</option>
-                    <option value='Si'>Si</option>
-                    <option value='No'>No</option>
+                    <option value='Relacionado con tesis'>Si</option>
+                    <option value='No relacionado con tesis'>No</option>
                   </Field>
-                  <ErrorMessage className='error' name='tesis' component='span' />
+                  <ErrorMessage
+                    className='error'
+                    name='tesis'
+                    component='span'
+                  />
                 </div>
               </div>
             </div>
