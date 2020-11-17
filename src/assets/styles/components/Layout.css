@@ -22,7 +22,7 @@ html {
 .app {
   display: grid;
   grid-template-columns: 65px calc(100vw - 73px);
-  grid-template-rows: 60px calc(100vh - 60px) 100px;
+  grid-template-rows: 50px calc(100vh - 50px) 100px;
   grid-template-areas:
     'header header'
     'aside main'
