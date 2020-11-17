@@ -1,10 +1,11 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { BookSchema } from '../utils/schemas/BookSchemas';
 import md5 from 'md5';
 import '../assets/styles/Libro.css';
 import { useDispatch } from '../store/StoreProvider';
+
 const Libro = () => {
   const dispatch = useDispatch();
   const historia = useHistory();
@@ -41,18 +42,7 @@ const Libro = () => {
 
     historia.push('/');
   };
-  const validationSchema = Yup.object({
-    titulo: Yup.string().required('Required'),
-    fecha: Yup.string().required('Requires'),
-    autor: Yup.string().required('Required'),
-    tesis: Yup.string().required('Seleccione una opción'),
-    url: Yup.string().url().required('Required'),
-    libro: Yup.object({
-      editorial: Yup.string().required('Required'),
-      edicion: Yup.string().required('Rerquired'),
-      isbn: Yup.string().required('required'),
-    }),
-  });
+  const validationSchema = BookSchema;
   return (
     <Formik
       initialValues={initialValues}

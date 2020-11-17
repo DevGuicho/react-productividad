@@ -1,6 +1,5 @@
+import { createContext, useReducer, useContext } from 'react';
 import storeReducer, { initialStore } from './storeReducer';
-
-const { createContext, useReducer, useContext } = require('react');
 
 const StoreContext = createContext();
 

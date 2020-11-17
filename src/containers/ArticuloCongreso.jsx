@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import '../assets/styles/ArticuloCongreso.css';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import md5 from 'md5';
 import { useDispatch } from '../store/StoreProvider';
+import { ArticleCongressSchema } from '../utils/schemas/ArticleSchemas';
+
 const ArticuloCongreso = () => {
   const dispatch = useDispatch();
   const historia = useHistory();
@@ -37,14 +38,7 @@ const ArticuloCongreso = () => {
 
     historia.push('/');
   };
-  const validationSchema = Yup.object({
-    titulo: Yup.string().required('Required'),
-    congreso: Yup.string().required('Required'),
-    fecha: Yup.date().required('Required'),
-    autor: Yup.string().required('Required'),
-    tesis: Yup.string().required('Seleccione una opción'),
-    url: Yup.string().url().required('Required'),
-  });
+  const validationSchema = ArticleCongressSchema;
 
   return (
     <Formik

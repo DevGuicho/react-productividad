@@ -1,11 +1,11 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import md5 from 'md5';
 import '../assets/styles/ArticuloRevista.css'; //importarat
 
 import { useDispatch } from '../store/StoreProvider';
+import { ArticleMagazineSchema } from '../utils/schemas/ArticleSchemas';
 const ArticuloRevista = () => {
   const dispatch = useDispatch();
   const historia = useHistory();
@@ -43,19 +43,7 @@ const ArticuloRevista = () => {
 
     historia.push('/');
   };
-  const validationSchema = Yup.object({
-    titulo: Yup.string().required('Required'),
-    autor: Yup.string().required('Required'),
-    tesis: Yup.string().required('Seleccione una opción'),
-    url: Yup.string().url().required('Required'),
-    revista: Yup.object({
-      nombre: Yup.string().required('Required'),
-      tipo: Yup.string().required('Required'),
-      indice: Yup.string().required('Rerquired'),
-      isnn: Yup.string().required('required'),
-      doi: Yup.string().required('Required'),
-    }),
-  });
+  const validationSchema = ArticleMagazineSchema;
   return (
     <Formik
       initialValues={initialValues}

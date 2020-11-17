@@ -1,7 +1,7 @@
 const initialStore = {
   productos: [
     {
-      id: 1,
+      id: '10535ad2 a4901090e3e37dcad0015fc9',
       titulo: 'Paralisis del sueño',
       congreso: 'Congreso de Viena',
       fecha: '1998-07-30',
@@ -11,8 +11,8 @@ const initialStore = {
       type: 'articuloCongreso',
     },
     {
-      id: 2,
-      titulo: 'Paralisis del sueño',
+      id: '12ffb13cd973dc2702501efdb3dc3b63',
+      titulo: 'Covid-19',
       autor: 'Coautor',
       url: 'https://google.com',
       tesis: 'No relaciodo con tesis',

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import md5 from 'md5';
 import { useDispatch } from '../store/StoreProvider';
+import { DevelopSchema } from '../utils/schemas/DevelopSchemas';
 
 const Desarrollo = () => {
   const dispatch = useDispatch();
@@ -40,17 +40,7 @@ const Desarrollo = () => {
 
     historia.push('/');
   };
-  const validationSchema = Yup.object({
-    titulo: Yup.string().required('Required'),
-    fecha: Yup.string().required('Requires'),
-    autor: Yup.string().required('Required'),
-    tesis: Yup.string().required('Seleccione una opción'),
-    url: Yup.string().url().required('Required'),
-    licencia: Yup.string().required('Required'),
-    desarrollo: Yup.object({
-      detalles: Yup.string().required('Required'),
-    }),
-  });
+  const validationSchema = DevelopSchema;
   return (
     <Formik
       initialValues={initialValues}
