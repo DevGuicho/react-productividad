@@ -1,0 +1,71 @@
+const productos = [
+  {
+    id: '10535ad2 a4901090e3e37dcad0015fc9',
+    titulo: 'Paralisis del sueño',
+    congreso: 'Congreso de Viena',
+    fecha: '1998-07-30',
+    autor: 'Autor Principal',
+    url: 'https://google.com',
+    tesis: 'Relacionado con tesis',
+    type: 'articuloCongreso',
+  },
+  {
+    id: '12ffb13cd973dc2702501efdb3dc3b63',
+    titulo: 'Covid-19',
+    autor: 'Coautor',
+    url: 'https://google.com',
+    tesis: 'No relaciodo con tesis',
+    type: 'articuloRevista',
+    revista: {
+      nombre: 'American Science',
+      tipo: 'Arbitrada',
+      indice: 'CONACyT',
+      isnn: 'ISSN 1666-2054',
+      doi: '10.1145/1067268.1067287',
+    },
+  },
+  {
+    id: 3,
+    titulo: 'Paralisis del sueño',
+    fecha: '2002',
+    autor: 'Autor Principal',
+    url: 'https://google.com',
+    tesis: 'Relaciodo con tesis',
+    type: 'capituloLibro',
+    libro: {
+      titulo: 'Cibercultura e Investigación',
+      editorial: 'Limusa',
+      edicion: '2da Edición',
+      isbn: 'ISBN 978-3-16-148410-0',
+    },
+  },
+  {
+    id: 4,
+    titulo: 'Paralisis del sueño',
+    fecha: '2002',
+    autor: 'Principal',
+    url: 'https://google.com',
+    tesis: 'Relaciodo con tesis',
+    type: 'Libro',
+    libro: {
+      editorial: 'Limusa',
+      edicion: '2da Edición',
+      isbn: 'ISBN fda',
+    },
+  },
+  {
+    id: 5,
+    titulo: 'Paralisis del sueño',
+    fecha: '07/07/1998',
+    autor: 'Coautor',
+    url: 'https://google.com',
+    type: 'Desarrollo',
+    tesis: 'Relaciodo con tesis',
+    licencia: 'MIT',
+    desarrollo: {
+      detalles:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium vitae nulla non maximus. Aenean ut purus eget augue gravida elementum. Nunc fringilla magna libero, vitae lacinia metus pharetra id. Etiam ultrices ligula leo, at pellentesque ligula vehicula a. Cras efficitur et metus malesuada ullamcorper. Proin egestas dapibus turpis.',
+    },
+  },
+];
+export { productos };
