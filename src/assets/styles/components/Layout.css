@@ -60,13 +60,21 @@ body::-webkit-scrollbar-track:active {
 }
 
 @media (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+  #root {
+    width: 100vw;
+    height: 100vh;
+  }
   .app {
+    width: 100%;
     display: grid;
-    grid-template-columns: 100vh;
+    grid-template-columns: 100vw;
     grid-template-rows: 50px calc(100vh - 100px) 50px;
     grid-template-areas:
-      'header header'
-      'main main'
-      'aside aside';
+      'header'
+      'main'
+      'aside';
   }
 }
