@@ -58,3 +58,15 @@ body::-webkit-scrollbar-track:hover,
 body::-webkit-scrollbar-track:active {
   background: #d4d4d4;
 }
+
+@media (max-width: 768px) {
+  .app {
+    display: grid;
+    grid-template-columns: 100vh;
+    grid-template-rows: 50px calc(100vh - 100px) 50px;
+    grid-template-areas:
+      'header header'
+      'main main'
+      'aside aside';
+  }
+}

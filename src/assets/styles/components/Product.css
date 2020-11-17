@@ -1,6 +1,6 @@
 .product__article {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 50px calc(100% - 50px);
   grid-template-rows: repeat(2, auto);
   padding: 15px;
   margin-bottom: 15px;
@@ -164,7 +164,7 @@
   display: flex;
   margin-left: 10px;
   width: 100%;
-  align-items: flex-start;
+  align-items: stretch;
 }
 .product__details--develop {
   display: flex;
@@ -195,7 +195,7 @@
 }
 .product__details--general {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
@@ -203,29 +203,20 @@
   list-style: none;
 }
 .product__details--general li {
-  color: #737373;
+  color: #474747;
   font-size: 1.2rem;
   margin-right: 15px;
+  margin-bottom: 5px;
   position: relative;
   text-decoration: none;
   display: block;
 }
 .product__details--general li a {
-  color: #737373;
+  color: #474747;
   font-size: 1.2rem;
   position: relative;
   text-decoration: none;
   display: inline-block;
-}
-.product__details--general li::after {
-  content: '';
-  position: absolute;
-  right: -10px;
-  top: 7px;
-  background: #737373;
-  border-radius: 100%;
-  width: 5px;
-  height: 5px;
 }
 
 .product__details--book {
