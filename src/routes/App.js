@@ -13,7 +13,7 @@ import SelectionPage from '../containers/SelectionPage';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Layout>
         <Switch>
           <Route exact path='/' component={Dashboard} />

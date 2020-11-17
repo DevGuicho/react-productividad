@@ -11,8 +11,14 @@ const urlSchema = Yup.string().url().required('Required');
 const magazineNameSchema = Yup.string().required('Required');
 const magazineTypeSchema = Yup.string().required('Required');
 const magazineIndexSchema = Yup.string().required('Rerquired');
-const magazineISSNSchema = Yup.string().required('required');
-const magazineDOISchema = Yup.string().required('Required');
+const magazineISSNSchema = Yup.string('formato invalido')
+  .matches(/^(ISSN )?[\S]{4}\-[\S]{4}$/, { message: 'Formato invalido' })
+  .required('required');
+const magazineDOISchema = Yup.string('formato invalido')
+  .matches(/^.*(10\.[A-Za-z0-9.\/-]+)(?<!\.)(?=[ ]|\.).*$/, {
+    message: 'Formato invalido',
+  })
+  .required('Required');
 
 const ArticleCongressSchema = Yup.object({
   titulo: titleSchema,
