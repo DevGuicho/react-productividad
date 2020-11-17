@@ -6,20 +6,18 @@
   row-gap: 20px;
   justify-content: center;
   height: calc(100vh - 60px);
-  
 }
 .productTable__header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  
 }
 .productTable__header h2 {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
-.productTable__header p{
+.productTable__header p {
   font-size: 2.4rem;
   font-weight: bold;
   align-self: flex-end;
@@ -29,9 +27,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 220px;
-  height: 45px;
-  border-radius: 40px;
+  width: 210px;
+  height: 35px;
+  border-radius: 7px;
   font-size: 1.4rem;
   font-weight: bold;
   text-decoration: none;
@@ -40,7 +38,6 @@
   outline: none;
   border: none;
   cursor: pointer;
-  
 }
 .btn i {
   margin-right: 10px;
@@ -51,6 +48,4 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background: var(--bg-gray);
-  
-  
 }
