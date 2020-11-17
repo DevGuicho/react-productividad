@@ -14,11 +14,22 @@
   list-style: none;
 }
 .aside__navbar a {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: white;
+  width: 100%;
+  height: inherit;
 }
-
+.link__text {
+  font-size: 1rem;
+  font-weight: normal;
+}
+.link__text--prefer {
+  font-size: 0.9rem;
+}
 .aside__navbar li {
   position: relative;
   display: flex;
