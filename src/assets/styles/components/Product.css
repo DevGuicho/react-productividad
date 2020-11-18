@@ -8,6 +8,8 @@
   border: none;
   border-radius: 15px;
   background: white;
+  
+  
 }
 .product__article:hover {
   box-shadow: 0px 6px 7px 1px rgba(0, 0, 0, 0.2);
@@ -85,19 +87,10 @@
   border: 2px solid var(--greenArticles);
   border-radius: 0 15px 15px 0;
   color: var(--greenArticles);
+  
 }
 
-.doctorado::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -20px;
-  width: 20px;
-  height: 100%;
-  border: 2px solid var(--greenArticles);
-  border-radius: 15px 0 0 15px;
-  background: var(--greenArticles);
-}
+
 .maestria {
   display: flex;
   flex-flow: row wrap;
@@ -109,7 +102,30 @@
   border-radius: 0 15px 15px 0;
   color: var(--purpleArticles);
 }
-
+.doctorado::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  border: 2px solid var(--greenArticles);
+  border-radius: 15px 0 0 15px;
+  background: var(--greenArticles);
+  
+}
+.maestria::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  border: 2px solid var(---purpleArticles);
+  border-radius: 15px 0 0 15px;
+  background: var(--purpleArticles);
+  padding-bottom: 4px;
+}
 .header__tag {
   display: flex;
   flex-direction: row;
@@ -150,6 +166,7 @@
   margin-left: 10px;
   font-size: 1.6rem;
   color: var(--black-warn);
+  width: 100%;
 }
 
 .product__title {
@@ -158,6 +175,10 @@
   color: var(--black-warn);
   margin-right: 10px;
 }
+.product__article--header i{
+  align-self: flex-end;
+  
+}
 .product__details {
   grid-column: 2/3;
   grid-row: 2/3;
@@ -165,6 +186,7 @@
   margin-left: 10px;
   width: 100%;
   align-items: stretch;
+  
 }
 .product__details--develop {
   display: flex;
@@ -176,6 +198,7 @@
   border-right: 1px solid #282934;
   color: #737373;
   font-size: 1.2rem;
+  
 }
 .product__details--list {
   display: flex;
@@ -186,12 +209,17 @@
   width: 300px;
   list-style: none;
   border-right: 1px solid #282934;
+  
 }
 
 .product__details--list li {
   margin-bottom: 2px;
   color: #737373;
   font-size: 1.2rem;
+  
+}
+.product__details--list i{
+  padding-right: 5px;
 }
 .product__details--general {
   display: flex;

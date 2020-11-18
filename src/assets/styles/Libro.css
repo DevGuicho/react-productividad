@@ -3,9 +3,11 @@
   border: 1px solid #28293456;
   border-radius: 15px;
   background: white;
-
-  height: calc(70vh);
-  
+  height: 450px;
+  padding-top: 35px;
+  padding-bottom: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
   
   display: flex;
   flex-direction: column;

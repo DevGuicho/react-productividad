@@ -6,6 +6,7 @@
   row-gap: 10px;
   justify-content: center;
   height: calc(100vh - 60px);
+  
 }
 .productTable__header {
   display: flex;
@@ -65,5 +66,6 @@
     row-gap: 10px;
     justify-content: center;
     height: calc(100vh - 60px);
+    
   }
 }

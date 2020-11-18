@@ -50,7 +50,7 @@ const ArticuloCongreso = () => {
         <div className='formulario'>
           <div className='formulario__header'>
             <div className='formulario__header--texto'>
-              <h2>Seleccione un producto</h2>
+              <h2>Articulo de Congreso</h2>
               <p>
                 Por favor llene el siguiente formulario para agreagar un
                 articulo de congreso
