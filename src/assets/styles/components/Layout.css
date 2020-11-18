@@ -60,8 +60,10 @@ body::-webkit-scrollbar-track:active {
 }
 
 @media (max-width: 768px) {
+  html,
   body {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
   }
   #root {
     width: 100vw;
@@ -75,6 +77,6 @@ body::-webkit-scrollbar-track:active {
     grid-template-areas:
       'header'
       'main'
-      'aside';
+      ' aside';
   }
 }

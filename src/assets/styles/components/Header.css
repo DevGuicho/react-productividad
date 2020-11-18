@@ -71,3 +71,17 @@
   margin-left: 10px;
   font-size: 1.6rem;
 }
+@media (max-width: 425px) {
+  .panel__user--name {
+    display: none;
+  }
+  .header__panel--bell {
+    display: none;
+  }
+  .header__text {
+    display: none;
+  }
+  .panel__user {
+    border: none;
+  }
+}

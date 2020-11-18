@@ -42,3 +42,17 @@
   font-size: 0.8rem;
   background: white;
 }
+
+@media (max-width: 425px) {
+  .productTable__navbar {
+    justify-content: center;
+  }
+  .productTable__nav--item {
+    margin-right: 5px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .productTable__nav--item span {
+    margin-left: 1px;
+  }
+}
