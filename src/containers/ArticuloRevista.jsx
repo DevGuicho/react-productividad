@@ -242,7 +242,7 @@ const ArticuloRevista = () => {
               </div>
 
               <div className='input__Row'>
-                <div className='inputControl p1'>
+                <div className='inputControl'>
                   <label className='text__label' htmlFor='autor'>
                     Tipo de autor
                   </label>
@@ -265,6 +265,7 @@ const ArticuloRevista = () => {
                     />
                   </div>
                 </div>
+                <div className='inputControl'></div>
               </div>
             </div>
           </div>

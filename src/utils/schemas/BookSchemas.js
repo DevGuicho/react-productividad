@@ -1,19 +1,19 @@
 import * as Yup from 'yup';
 
-const dateSchema = Yup.string().required('Requires');
-const autorSchema = Yup.string().required('Required');
-const tesisSchema = Yup.string().required('Seleccione una opción');
-const urlSchema = Yup.string().url().required('Required');
-const titleSchema = Yup.string().required('Required');
+const dateSchema = Yup.string().required('Campo Obligatorio');
+const autorSchema = Yup.string().required('Campo Obligatorio');
+const tesisSchema = Yup.string().required('Campo Obligatorio');
+const urlSchema = Yup.string().url().required('Campo Obligatorio');
+const titleSchema = Yup.string().required('Campo Obligatorio');
 
-const bookEditorialSchema = Yup.string().required('Required');
-const bookEdicionSchema = Yup.string().required('Rerquired');
-const bookISBNSchema = Yup.string('formato invalido')
+const bookEditorialSchema = Yup.string().required('Campo Obligatorio');
+const bookEdicionSchema = Yup.string().required('Campo Obligatorio');
+const bookISBNSchema = Yup.string('Formato Invalido')
   .matches(
     /^(?:ISBN(?:-1[03])?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$|97[89][0-9]{10}$|(?=(?:[0-9]+[- ]){4})[- 0-9]{17}$)(?:97[89][- ]?)?[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$/,
-    { message: 'Formato invalido' }
+    { message: 'Formato Invalido' }
   )
-  .required('required');
+  .required('Campo Obligatorio');
 
 const BookSchema = Yup.object({
   titulo: titleSchema,

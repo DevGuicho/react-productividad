@@ -172,6 +172,7 @@ const Desarrollo = () => {
                     component='span'
                   />
                 </div>
+                <div className='inputControl'></div>
               </div>
             </div>
           </div>

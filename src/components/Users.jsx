@@ -20,20 +20,20 @@ const User = ({ product }) => {
       <div className='product__details'>
         <ul className='product__details--list'>
           <li className='details__principal'>
-            <i className='fas fa-calendar-alt'></i>
+            <i className='fas fa-fingerprint'></i>
             {product.rfc}
           </li>
 
           <li className='details__principal'>
-            <i className='fas fa-user-edit'></i>
+            <i className='fas fa-id-card'></i>
             {product.curp}
           </li>
           <li className='details__principal'>
-            <i className='fas fa-globe'></i>
+            <i className='fas fa-envelope'></i>
             {product.email}
           </li>
           <li className='details__principal'>
-            <i className='fas fa-globe'></i>
+            <i className='fas fa-graduation-cap'></i>
             {product.estudiante}
           </li>
         </ul>
