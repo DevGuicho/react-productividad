@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-productividad/static/css/main.f4ba9cf6.chunk.css",
-    "main.js": "/react-productividad/static/js/main.2531e833.chunk.js",
-    "main.js.map": "/react-productividad/static/js/main.2531e833.chunk.js.map",
+    "main.css": "/react-productividad/static/css/main.c4772524.chunk.css",
+    "main.js": "/react-productividad/static/js/main.361b6446.chunk.js",
+    "main.js.map": "/react-productividad/static/js/main.361b6446.chunk.js.map",
     "runtime-main.js": "/react-productividad/static/js/runtime-main.73327c2d.js",
     "runtime-main.js.map": "/react-productividad/static/js/runtime-main.73327c2d.js.map",
     "static/js/2.31faee2b.chunk.js": "/react-productividad/static/js/2.31faee2b.chunk.js",
     "static/js/2.31faee2b.chunk.js.map": "/react-productividad/static/js/2.31faee2b.chunk.js.map",
     "index.html": "/react-productividad/index.html",
-    "static/css/main.f4ba9cf6.chunk.css.map": "/react-productividad/static/css/main.f4ba9cf6.chunk.css.map",
+    "static/css/main.c4772524.chunk.css.map": "/react-productividad/static/css/main.c4772524.chunk.css.map",
     "static/js/2.31faee2b.chunk.js.LICENSE.txt": "/react-productividad/static/js/2.31faee2b.chunk.js.LICENSE.txt",
     "static/media/Logo_CICATA.0b94f67b.png": "/react-productividad/static/media/Logo_CICATA.0b94f67b.png",
     "static/media/desarrollo.4c4f13f1.png": "/react-productividad/static/media/desarrollo.4c4f13f1.png",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.73327c2d.js",
     "static/js/2.31faee2b.chunk.js",
-    "static/css/main.f4ba9cf6.chunk.css",
-    "static/js/main.2531e833.chunk.js"
+    "static/css/main.c4772524.chunk.css",
+    "static/js/main.361b6446.chunk.js"
   ]
 }
