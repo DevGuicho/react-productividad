@@ -11,19 +11,19 @@ const DashboardCordinator = () => {
   const [search, setSearch] = useState('all');
   const number = {
     all: productList.length,
-    maestria: productList.filter((product) => product.estudiante === 'maestria')
+    maestria: productList.filter((product) => product.estudiante === 'Maestria')
       .length,
     doctorado: productList.filter(
-      (product) => product.estudiante === 'doctorado'
+      (product) => product.estudiante === 'Doctorado'
     ).length,
   };
 
   const filterProducts = () => {
-    if (search === 'maestria') {
-      return productList.filter((product) => product.estudiante === 'maestria');
-    } else if (search === 'doctorado') {
+    if (search === 'Maestria') {
+      return productList.filter((product) => product.estudiante === 'Maestria');
+    } else if (search === 'Doctorado') {
       return productList.filter(
-        (product) => product.estudiante === 'doctorado'
+        (product) => product.estudiante === 'Doctorado'
       );
     } else if (search === 'all') {
       return productList;
@@ -38,7 +38,8 @@ const DashboardCordinator = () => {
         <div className='productTable__header'>
           <h2>Alumnos</h2>
           <Link to='/coordinador' className='btn'>
-            <i className='fas fa-plus'></i>Agregar alumno
+            <i className='fas fa-plus'></i>
+            <span>Agregar alumno</span>
           </Link>
         </div>
         <NavbarCoordinador selector={setSearch} number={number} />

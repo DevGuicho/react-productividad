@@ -5,15 +5,18 @@ const usuarios = [
     rfc: 'VAPL000903SH2',
     curp: 'VAPL000903HMZSDA6',
     email: 'luisvp@correo.com',
-    estudiante: 'maestria',
+    estudiante: 'Maestria',
     productos: [
       {
         id: 1,
-        titulo: 'Las profesiones, las lenguas y el español. Una mirada hacia el futuro',
-        congreso: 'Congreso Internacional de Español para Fines Específicos (CIEFE)',
+        titulo:
+          'Las profesiones, las lenguas y el español. Una mirada hacia el futuro',
+        congreso:
+          'Congreso Internacional de Español para Fines Específicos (CIEFE)',
         fecha: '2018',
         autor: 'Autor Principal',
-        url: 'http://www.educacionyfp.gob.es/paisesbajos/dam/jcr:6741f1ec-7200-4d64-b36d-5cbaae68641f/actas.vi.ciefe.def.pdf',
+        url:
+          'http://www.educacionyfp.gob.es/paisesbajos/dam/jcr:6741f1ec-7200-4d64-b36d-5cbaae68641f/actas.vi.ciefe.def.pdf',
         tesis: 'No Relacionado con Tesis',
         type: 'articuloCongreso',
       },
@@ -25,7 +28,7 @@ const usuarios = [
     rfc: 'FUNL001231MDF',
     curp: 'FUNL001231MDFNVLA5',
     email: 'liliamontfn@correo.com',
-    estudiante: 'doctorado',
+    estudiante: 'Doctorado',
     productos: [
       {
         id: 4,
@@ -39,7 +42,7 @@ const usuarios = [
           editorial: '',
           edicion: 'En Linea',
           isbn: 'ISBN e-book 9780121381103',
-        },  
+        },
       },
     ],
   },

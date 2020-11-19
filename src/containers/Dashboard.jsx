@@ -55,7 +55,8 @@ const Dashboar = () => {
         <div className='productTable__header'>
           <h2>Productividad</h2>
           <Link to='/select' className='btn'>
-            <i className='fas fa-plus'></i>Agregar producto
+            <i className='fas fa-plus'></i>
+            <span>Agregar producto</span>
           </Link>
         </div>
         <Navbar selector={setSearch} number={number} />

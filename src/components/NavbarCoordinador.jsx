@@ -24,7 +24,7 @@ const NavbarCoordinador = ({ selector, number }) => {
         books: false,
         developments: false,
       });
-      selector('maestria');
+      selector('Maestria');
     } else if (sel === 'libros') {
       setSelection({
         all: false,
@@ -32,7 +32,7 @@ const NavbarCoordinador = ({ selector, number }) => {
         books: true,
         developments: false,
       });
-      selector('doctorado');
+      selector('Doctorado');
     }
   };
   return (

@@ -1,11 +1,14 @@
 const productos = [
   {
     id: '10535ad2 a4901090e3e37dcad0015fc9',
-    titulo: 'Las profesiones, las lenguas y el español. Una mirada hacia el futuro',
-    congreso: 'Congreso Internacional de Español para Fines Específicos (CIEFE)',
+    titulo:
+      'Las profesiones, las lenguas y el español. Una mirada hacia el futuro',
+    congreso:
+      'Congreso Internacional de Español para Fines Específicos (CIEFE)',
     fecha: '2018',
     autor: 'Autor Principal',
-    url: 'http://www.educacionyfp.gob.es/paisesbajos/dam/jcr:6741f1ec-7200-4d64-b36d-5cbaae68641f/actas.vi.ciefe.def.pdf',
+    url:
+      'http://www.educacionyfp.gob.es/paisesbajos/dam/jcr:6741f1ec-7200-4d64-b36d-5cbaae68641f/actas.vi.ciefe.def.pdf',
     tesis: 'No Relacionado con Tesis',
     type: 'articuloCongreso',
   },
@@ -29,14 +32,15 @@ const productos = [
     titulo: 'Additions to the Olefinic C=C Double Bond',
     fecha: '2002',
     autor: 'Autor Principal',
-    url: 'http://www.sciencedirect.com/science/article/pii/B9780121381103500064',
+    url:
+      'http://www.sciencedirect.com/science/article/pii/B9780121381103500064',
     tesis: 'No Relaciodo con Tesis',
     type: 'capituloLibro',
     libro: {
       titulo: 'Advanced organic chemistry : reaction mechanisms',
       editorial: '',
       edicion: 'En Linea',
-      isbn: 'ISBN e-book 9780121381103',
+      isbn: 'ISBN 9780121381103',
     },
   },
   {
@@ -50,12 +54,13 @@ const productos = [
     libro: {
       editorial: '',
       edicion: 'En Linea',
-      isbn: 'ISBN e-book 9780121381103',
+      isbn: 'ISBN 9780121381103',
     },
   },
   {
     id: 5,
-    titulo: 'The Design and Implementation of Database Interface for Logic Language',
+    titulo:
+      'The Design and Implementation of Database Interface for Logic Language',
     fecha: 'Enero 2005',
     autor: 'Coautor',
     url: 'http://www.iceis.org/iceis2005/abstracts_2005.htm',

@@ -75,7 +75,7 @@
   border-radius: 10px;
 }
 
-.doctorado {
+/* .doctorado {
   display: flex;
   flex-flow: row wrap;
   position: relative;
@@ -97,7 +97,7 @@
   border: 2px solid var(--purpleArticles);
   border-radius: 0 15px 15px 0;
   color: var(--purpleArticles);
-}
+} */
 .doctorado::after {
   content: '';
   position: absolute;
@@ -121,10 +121,28 @@
   background: var(--purpleArticles);
   padding-bottom: 4px;
 }
+
+.article__header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.article__header--title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--black-warn);
+  margin-right: 10px;
+}
+
 .header__tag {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 .header__tag span {
   margin-left: 5px;
@@ -150,24 +168,6 @@
 .Desarrollo {
   font-size: 1.2rem;
   color: #ff8a1e;
-}
-.product__article--header {
-  grid-column: 2/3;
-  grid-row: 1/2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  font-size: 1.6rem;
-  color: var(--black-warn);
-}
-
-.product__title {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: var(--black-warn);
-  margin-right: 10px;
 }
 
 .product__details {
@@ -201,7 +201,7 @@
 }
 
 .product__details--list li {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   color: #737373;
   font-size: 1.2rem;
 }
@@ -246,14 +246,71 @@
 .click {
   cursor: pointer;
 }
-.panelProduct {
+.article__header--panel {
   height: inherit;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  flex-grow: 1;
 }
-.panelProduct i {
+.article__header--panel i {
   color: var(--bg-guinda);
   font-size: 1.2rem;
   margin-left: 10px;
+}
+
+@media (max-width: 425px) {
+  .article__header {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .article__header--title {
+    margin-bottom: 10px;
+  }
+  .header__tag {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .product__details--list {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    border-bottom: 1px solid #282934;
+    border-right: none;
+    width: 100%;
+  }
+  .product__details {
+    grid-column: 1/3;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    margin: 0px;
+  }
+  .details__Desarrollo {
+    padding: 0px;
+  }
+  .product__details--develop {
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-right: none;
+    border-bottom: 1px solid #282934;
+  }
+  /* .details__articuloCongreso {
+    border-top: 2px solid #2a3246;
+  }
+  .details__articuloRevista {
+    border-top: 2px solid #ffaa2c;
+  }
+  .details__capituloLibro {
+    border-top: 2px solid#12923d;
+  }
+  .details__Libro {
+    border-top: 2px solid#0094ff;
+  } */
 }

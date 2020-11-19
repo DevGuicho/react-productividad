@@ -46,7 +46,7 @@ const Product = ({ product, type, isCordinator }) => {
           <li>{product.revista.nombre}</li>
           <li>{product.revista.tipo}</li>
           <li>{product.revista.indice}</li>
-          <li>{product.revista.iss}</li>
+          <li>{product.revista.isnn}</li>
           <li>{product.revista.doi}</li>
         </ul>
       );
@@ -90,22 +90,22 @@ const Product = ({ product, type, isCordinator }) => {
   return (
     <article className={`product__article`}>
       <div className={`product__img--${type}`}>{img}</div>
-      <div className='product__article--header'>
+      <div className='article__header'>
+        <h3 className='article__header--title'>{product.titulo}</h3>
         <div className={`header__tag ${type}`}>
-          <h3 className='product__title'>{product.titulo}</h3>
           <i className='fas fa-tag i'></i>
           <span>{tag}</span>
         </div>
         {isCordinator ? (
           <div></div>
         ) : (
-          <div className='panelProduct'>
+          <div className='article__header--panel'>
             <i className='fas fa-trash-alt click' onClick={deleteProduct}></i>
             <i className='fas fa-pen click' onClick={editProduct}></i>
           </div>
         )}
       </div>
-      <div className='product__details'>
+      <div className={`product__details details__${type}`}>
         {firstItem}
         <ul className='product__details--general'>
           <li>{product.autor}</li>
