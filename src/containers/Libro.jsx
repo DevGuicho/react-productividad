@@ -64,6 +64,7 @@ const Libro = () => {
           </div>
           <div className='form'>
             <div className='outline__formL'>
+            <h2>Informacion del Libro</h2>
               <div className='input__RowL'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='titulo'>
@@ -149,6 +150,10 @@ const Libro = () => {
                     component='span'
                   />
                 </div>
+                <div className='inputControl'></div>
+              </div>
+              <h2>Informacion General</h2>
+              <div className='input__RowL'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='url'>
                     URL del evento
@@ -156,8 +161,6 @@ const Libro = () => {
                   <Field className='input' type='text' name='url' id='url' />
                   <ErrorMessage className='error' name='url' component='span' />
                 </div>
-              </div>
-              <div className='input__RowL'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='autor'>
                     Tipo de autor
@@ -173,7 +176,8 @@ const Libro = () => {
                     component='span'
                   />
                 </div>
-
+              </div>
+              <div className='input__RowL'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='tesis'>
                     ¿Esta relacionado con su tesis?
@@ -189,6 +193,7 @@ const Libro = () => {
                     component='span'
                   />
                 </div>
+                <div className='inputControl'></div>
               </div>
             </div>
           </div>
