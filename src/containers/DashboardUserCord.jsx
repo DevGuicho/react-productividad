@@ -72,7 +72,11 @@ const DashboardUserCord = () => {
             />
           ))}
           {filteredProducts.length === 0 ? (
-            <div>NO hay productos para mostrar</div>
+            
+            <div className='emptyProduct'>
+              <i className='fas fa-times-circle'></i>
+              No hay Productos para Mostrar
+            </div>
           ) : null}
         </ListProduct>
       </div>

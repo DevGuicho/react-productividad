@@ -20,7 +20,21 @@
   margin-bottom: 50px;
 }
 
-
+.emptyProduct{
+  margin-top: 400px;
+  margin-right: 300px;
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #8f8f8f;
+  display: flex;
+  flex-direction: column;
+}
+.emptyProduct i{
+  font-size: 2.5em;
+  color: #8f8f8f;
+  align-self: center;
+  padding-bottom: 10px;
+}
 .userCard__outline{
   margin: 35% 5% 10% 1%;
   margin-top: 35%;
