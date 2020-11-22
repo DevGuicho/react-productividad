@@ -19,10 +19,10 @@
   width: 100%;
   margin-top: 25px;
   margin-bottom: 40px;
-  border-bottom: 2px solid #727272;
+  border-bottom: 2px solid #c0c0c0;
 }
 .selectPage__title {
-  font-size: 1.6rem;
+  font-size: 1.8 rem;
   font-weight: bold;
   padding-bottom: 20px;
   color: var(--black-warn);
@@ -92,4 +92,19 @@
   text-decoration: none;
   font-size: 2.4rem;
   font-weight: bold;
+}
+
+@media (max-width: 425px) {
+  .selectPage {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    justify-content: center;
+  }
+  .selectPage__container {
+    width: 90%;
+  }
+  .selectPage__Grid {
+    justify-content: center;
+  }
 }

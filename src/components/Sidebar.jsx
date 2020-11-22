@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../assets/styles/components/Sidebar.css';
 import { useDispatch, useStore } from '../store/StoreProvider';
 const Sidebar = () => {
+  const history = useHistory();
   const { place } = useStore();
   const dispatch = useDispatch();
+  /* const location = useLocation(); */
+
   const handleClick = (e) => {
     if (e === 'home') {
       dispatch({
@@ -46,6 +49,9 @@ const Sidebar = () => {
           config: true,
         },
       });
+    } else if (e === 'back') {
+      history.goBack();
+      /* console.log(location.pathname); */
     }
   };
   return (
@@ -53,9 +59,9 @@ const Sidebar = () => {
       <nav className='aside__nav'>
         <ul className='aside__navbar'>
           <li>
-            <Link to='/'>
+            <div className='goBack' onClick={() => handleClick('back')}>
               <i className='fas fa-arrow-left'></i>
-            </Link>
+            </div>
           </li>
           <li className={`${place.home ? 'selection' : ''}`}>
             <Link to='/' onClick={() => handleClick('home')}>
@@ -64,19 +70,19 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className={`${place.users ? 'selection' : ''}`}>
-            <Link to='/coordinador' onClick={() => handleClick('users')}>
+            <Link to='/students' onClick={() => handleClick('users')}>
               <i className='fas fa-users'></i>
               <span className='link__text'>Alumnos</span>
             </Link>
           </li>
           <li className={`${place.products ? 'selection' : ''}`}>
-            <Link to='/' onClick={() => handleClick('products')}>
+            <Link to='/products' onClick={() => handleClick('products')}>
               <i className='fas fa-list-alt'></i>
               <span className='link__text'>Productos</span>
             </Link>
           </li>
           <li className={`${place.config ? 'selection' : ''}`}>
-            <Link to='/' onClick={() => handleClick('config')}>
+            <Link to='/configuration' onClick={() => handleClick('config')}>
               <i className='fas fa-cog'></i>
               <span className='link__text--prefer'>Preferencias</span>
             </Link>

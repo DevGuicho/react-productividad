@@ -5,23 +5,21 @@
   align-items: center;
   margin-top: 25px;
 }
-.headertext{
+.headertext {
   width: 100%;
-  
 }
 .productTable__headerUC h2 {
   font-size: 1.8rem;
   font-weight: 700;
 }
-.productTable__headerUC p{
+.productTable__headerUC p {
   font-size: 1.8rem;
   font-weight: bold;
   font-weight: 600;
   margin-bottom: 50px;
 }
 
-
-.userCard__outline{
+.userCard__outline {
   margin: 35% 5% 10% 1%;
   margin-top: 35%;
   margin-bottom: 10%;
@@ -32,59 +30,57 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  
 }
-.userCard__avatar{
+.userCard__avatar {
   width: 100%;
   height: 30%;
   margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  
+
   display: flex;
   justify-content: center;
-  
-  
 }
-.userCard__avatar i{
+.userCard__avatar i {
   color: white;
   align-self: center;
   font-size: 4rem;
   padding: 20px;
   border-radius: 100%;
   border: 3px white solid;
-
 }
 
-.userCard__datos{
+.userCard__datos {
   width: 100%;
   height: 70%;
   display: flex;
   flex-direction: row;
-  
 }
-.dataUser{
+.dataUser {
   width: 100%;
   list-style: none;
   display: flex;
   flex-direction: column;
   align-content: space-between;
   margin-bottom: 10px;
-  
 }
-.userName{
+.userName {
   align-self: center;
 }
-.dataUser li{
+.dataUser li {
   font-size: 18px;
   font-weight: 400;
   color: white;
   padding-bottom: 15px;
-
 }
-.dataUser i{
+.dataUser i {
   padding-left: 50px;
   padding-right: 10px;
   font-size: 2rem;
 }
 
+@media (max-width: 1024px) {
+  .userCard {
+    display: none;
+  }
+}

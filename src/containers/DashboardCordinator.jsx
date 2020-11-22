@@ -37,10 +37,6 @@ const DashboardCordinator = () => {
       <div className='productTable'>
         <div className='productTable__header'>
           <h2>Alumnos</h2>
-          <Link to='/coordinador' className='btn'>
-            <i className='fas fa-plus'></i>
-            <span>Agregar alumno</span>
-          </Link>
         </div>
         <NavbarCoordinador selector={setSearch} number={number} />
         <ListProduct>
