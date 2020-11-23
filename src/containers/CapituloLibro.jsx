@@ -65,6 +65,7 @@ const CapituloLibro = () => {
           </div>
           <div className='form'>
             <div className='outline__form'>
+            <h2>Informacion del Capitulo del Libro</h2>
               <div className='input__Row'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='titulo'>
@@ -117,26 +118,37 @@ const CapituloLibro = () => {
                   />
                 </div>
                 <div className='inputControl'>
-                  <label className='text__label' htmlFor='url'>
-                    URL del evento
+                  <label className='text__label' htmlFor='fecha'>
+                    Año de publicación
                   </label>
-                  <Field className='input' type='text' name='url' id='url' />
-                  <ErrorMessage className='error' name='url' component='span' />
+                  <Field
+                    className='input'
+                    type='text'
+                    name='fecha'
+                    id='fecha'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='fecha'
+                    component='span'
+                  />
                 </div>
+                
               </div>
               <div className='input__Row'>
                 <div className='inputControl'>
-                  <label className='text__label' htmlFor='autor'>
-                    Tipo de autor
+                  <label className='text__label' htmlFor='titulo1'>
+                    Titulo del Capitulo
                   </label>
-                  <Field className='input' as='select' name='autor' id='autor'>
-                    <option value=''>Seleccione una opción</option>
-                    <option value='Principal'>Principal</option>
-                    <option value='Coautor'>Secundario</option>
-                  </Field>
+                  <Field
+                    className='input'
+                    type='text'
+                    name='titulo'
+                    id='titulo1'
+                  />
                   <ErrorMessage
                     className='error'
-                    name='autor'
+                    name='titulo'
                     component='span'
                   />
                 </div>
@@ -157,40 +169,32 @@ const CapituloLibro = () => {
                   />
                 </div>
               </div>
+              <h2>Informacion General</h2>
               <div className='input__Row'>
-                <div className='inputControl'>
-                  <label className='text__label' htmlFor='fecha'>
-                    Año de publicación
+                  <div className='inputControl'>
+                    <label className='text__label' htmlFor='url'>
+                     URL del evento
+                    </label>
+                    <Field className='input' type='text' name='url' id='url' />
+                    <ErrorMessage className='error' name='url' component='span' />
+                  </div>
+                
+                  <div className='inputControl'>
+                  <label className='text__label' htmlFor='autor'>
+                    Tipo de autor
                   </label>
-                  <Field
-                    className='input'
-                    type='text'
-                    name='fecha'
-                    id='fecha'
-                  />
+                  <Field className='input' as='select' name='autor' id='autor'>
+                    <option value=''>Seleccione una opción</option>
+                    <option value='Principal'>Principal</option>
+                    <option value='Coautor'>Secundario</option>
+                  </Field>
                   <ErrorMessage
                     className='error'
-                    name='fecha'
+                    name='autor'
                     component='span'
                   />
                 </div>
 
-                <div className='inputControl'>
-                  <label className='text__label' htmlFor='titulo1'>
-                    Titulo del Capitulo
-                  </label>
-                  <Field
-                    className='input'
-                    type='text'
-                    name='titulo'
-                    id='titulo1'
-                  />
-                  <ErrorMessage
-                    className='error'
-                    name='titulo'
-                    component='span'
-                  />
-                </div>
               </div>
               <div className='input__Row'>
                 <div className='inputControl'>

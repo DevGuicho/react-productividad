@@ -38,30 +38,40 @@
 
 .outline__form {
   width: 100%;
+  height: 625px;
   border: 1px solid #28293456;
   border-radius: 15px;
   background: white;
-  height: 500px;
   display: flex;
   flex-direction: column;
-  padding-top: 35px;
+  padding-top: 25px;
   padding-bottom: 15px;
   padding-right: 20px;
   padding-left: 20px;
+  
 }
 
 .input__Row {
   width: 100%;
-  height: 20%;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
+  
+}
+.outline__form h2{
+  color: var(--bg-guinda);
+  padding-bottom: 20px;
+  padding-left: 12px;
+  padding-top: 10px;
+  font-size: 18px;
 }
 
 .inputControl {
   width: 50%;
   margin-left: 10px;
   margin-right: 10px;
-  
+  height: 75px;
+  flex-basis: auto;
 }
 
 .text__label {
@@ -89,7 +99,7 @@
   outline: none;
   padding: 0 10px;
   transition: 0.3s ease all;
-  
+  resize: none;
 }
 .input__validation {
   position: absolute;
@@ -100,9 +110,9 @@
   opacity: 0;
 }
 .error {
-  padding: 10px;
+  padding-top: 5px;
   text-align: center;
-  border-radius: 5px;
+  padding-left: 5px;
   font-weight: 600;
   color: #d4100b;
   

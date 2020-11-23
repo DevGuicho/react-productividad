@@ -4,7 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import md5 from 'md5';
 import { useDispatch } from '../store/StoreProvider';
 import { DevelopSchema } from '../utils/schemas/DevelopSchemas';
-
+import '../assets/styles/Desarrollo.css';
 const Desarrollo = () => {
   const dispatch = useDispatch();
   const historia = useHistory();
@@ -62,8 +62,9 @@ const Desarrollo = () => {
             </button>
           </div>
           <div className='form'>
-            <div className='outline__formL'>
-              <div className='input__RowL'>
+            <div className='outline__formD'>
+            <h2>Informacion del Desarrollo</h2>
+              <div className='input__RowD'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='titulo'>
                     Titulo del Desarrollo
@@ -97,7 +98,7 @@ const Desarrollo = () => {
                   />
                 </div>
               </div>
-              <div className='input__RowL'>
+              <div className='input__RowD'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='licencia'>
                     Licencia
@@ -115,14 +116,32 @@ const Desarrollo = () => {
                   />
                 </div>
                 <div className='inputControl'>
+                  <label className='text__label' htmlFor='detalles'>
+                    Detalles del desarrollo
+                  </label>
+                  <Field
+                    className='input'
+                    as='textarea'
+                    name='desarrollo.detalles'
+                    id='detalles'
+                  />
+                  <ErrorMessage
+                    className='error'
+                    name='desarrollo.detalles'
+                    component='span'
+                  />
+                </div>
+                
+              </div>
+              <h2>Informacion General</h2>
+              <div className='input__RowD'>
+                <div className='inputControl'>
                   <label className='text__label' htmlFor='url'>
                     URL del repositorio
                   </label>
                   <Field className='input' type='text' name='url' id='url' />
                   <ErrorMessage className='error' name='url' component='span' />
                 </div>
-              </div>
-              <div className='input__RowL'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='autor'>
                     Tipo de autor
@@ -139,6 +158,9 @@ const Desarrollo = () => {
                   />
                 </div>
 
+                
+              </div>
+              <div className='input__RowD'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='tesis'>
                     ¿Esta relacionado con su tesis?
@@ -151,24 +173,6 @@ const Desarrollo = () => {
                   <ErrorMessage
                     className='error'
                     name='tesis'
-                    component='span'
-                  />
-                </div>
-              </div>
-              <div className='input__RowL'>
-                <div className='inputControl'>
-                  <label className='text__label' htmlFor='detalles'>
-                    Detalles del desarrollo
-                  </label>
-                  <Field
-                    className='input'
-                    as='textarea'
-                    name='desarrollo.detalles'
-                    id='detalles'
-                  />
-                  <ErrorMessage
-                    className='error'
-                    name='desarrollo.detalles'
                     component='span'
                   />
                 </div>

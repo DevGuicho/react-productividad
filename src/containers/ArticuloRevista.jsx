@@ -67,6 +67,7 @@ const ArticuloRevista = () => {
           {/* Desde Aqui */}
           <div className='form'>
             <div className='outline__form'>
+                <h2>Informacion de Articulo de Revista</h2>
               <div className='input__Row'>
                 <div className='inputControl '>
                   <label className='text__label' htmlFor='titulo'>
@@ -87,7 +88,27 @@ const ArticuloRevista = () => {
                     />
                   </div>
                 </div>
-
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='nombreRevista'>
+                    Nombre de la revista
+                  </label>
+                  <div className='input__group'>
+                    <Field
+                      className='input'
+                      type='text'
+                      name='revista.nombre'
+                      id='nombreRevista'
+                    />
+                    <i className='input__validation fas fa-times-circle'></i>
+                    <ErrorMessage
+                      className='error'
+                      name='revista.nombre'
+                      component='span'
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className='input__Row'>
                 <div className='inputControl '>
                   <label className='text__label' htmlFor='tipo'>
                     Tipo de revista
@@ -111,11 +132,55 @@ const ArticuloRevista = () => {
                     />
                   </div>
                 </div>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='indice'>
+                    Indice de la revista
+                  </label>
+                  <div className='input__group'>
+                    <Field
+                      className='input'
+                      as='select'
+                      name='revista.indice'
+                      id='indice'
+                    >
+                      <option value=''>Seleccione una opción</option>
+                      <option value='Conacyt'>Conacy</option>
+                      <option value='JCR'>JCR</option>
+                      <option value='Otro'>Otro</option>
+                    </Field>
+                    <i className='input__validation fas fa-times-circle'></i>
+                    <ErrorMessage
+                      className='error'
+                      name='revista.indice'
+                      component='span'
+                    />
+                  </div>
+                </div>
               </div>
+
               <div className='input__Row'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='doi'>
+                    DOI
+                  </label>
+                  <div className='input__group'>
+                    <Field
+                      className='input'
+                      type='text'
+                      name='revista.doi'
+                      id='doi'
+                    />
+                    <i className='input__validation fas fa-times-circle'></i>
+                    <ErrorMessage
+                      className='error'
+                      name='revista.doi'
+                      component='span'
+                    />
+                  </div>
+                </div>
                 <div className='inputControl '>
                   <label className='text__label' htmlFor='isnn'>
-                    ISNN
+                    ISSN
                   </label>
                   <div className='input__group'>
                     <Field
@@ -132,7 +197,9 @@ const ArticuloRevista = () => {
                     />
                   </div>
                 </div>
-
+              </div>
+              <h2>Informacion General</h2>
+              <div className='input__Row'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='url'>
                     URL del evento
@@ -143,6 +210,29 @@ const ArticuloRevista = () => {
                     <ErrorMessage
                       className='error'
                       name='url'
+                      component='span'
+                    />
+                  </div>
+                </div>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='autor'>
+                    Tipo de autor
+                  </label>
+                  <div className='input__group'>
+                    <Field
+                      className='input'
+                      as='select'
+                      name='autor'
+                      id='autor'
+                    >
+                      <option value=''>Seleccione una opción</option>
+                      <option value='Principal'>Principal</option>
+                      <option value='Coautor'>Secundario</option>
+                    </Field>
+                    <i className='input__validation fas fa-times-circle'></i>
+                    <ErrorMessage
+                      className='error'
+                      name='autor'
                       component='span'
                     />
                   </div>
@@ -173,100 +263,9 @@ const ArticuloRevista = () => {
                     />
                   </div>
                 </div>
-
-                <div className='inputControl'>
-                  <label className='text__label' htmlFor='nombreRevista'>
-                    Nombre de la revista
-                  </label>
-                  <div className='input__group'>
-                    <Field
-                      className='input'
-                      type='text'
-                      name='revista.nombre'
-                      id='nombreRevista'
-                    />
-                    <i className='input__validation fas fa-times-circle'></i>
-                    <ErrorMessage
-                      className='error'
-                      name='revista.nombre'
-                      component='span'
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className='input__Row'>
-                <div className='inputControl'>
-                  <label className='text__label' htmlFor='indice'>
-                    indice de la revista
-                  </label>
-                  <div className='input__group'>
-                    <Field
-                      className='input'
-                      as='select'
-                      name='revista.indice'
-                      id='indice'
-                    >
-                      <option value=''>Seleccione una opción</option>
-                      <option value='Conacyt'>Conacy</option>
-                      <option value='JCR'>JCR</option>
-                      <option value='Otro'>Otro</option>
-                    </Field>
-                    <i className='input__validation fas fa-times-circle'></i>
-                    <ErrorMessage
-                      className='error'
-                      name='revista.indice'
-                      component='span'
-                    />
-                  </div>
-                </div>
-                <div className='inputControl'>
-                  <label className='text__label' htmlFor='doi'>
-                    DOI
-                  </label>
-                  <div className='input__group'>
-                    <Field
-                      className='input'
-                      type='text'
-                      name='revista.doi'
-                      id='doi'
-                    />
-                    <i className='input__validation fas fa-times-circle'></i>
-                    <ErrorMessage
-                      className='error'
-                      name='revista.doi'
-                      component='span'
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className='input__Row'>
-                <div className='inputControl'>
-                  <label className='text__label' htmlFor='autor'>
-                    Tipo de autor
-                  </label>
-                  <div className='input__group'>
-                    <Field
-                      className='input'
-                      as='select'
-                      name='autor'
-                      id='autor'
-                    >
-                      <option value=''>Seleccione una opción</option>
-                      <option value='Principal'>Principal</option>
-                      <option value='Coautor'>Secundario</option>
-                    </Field>
-                    <i className='input__validation fas fa-times-circle'></i>
-                    <ErrorMessage
-                      className='error'
-                      name='autor'
-                      component='span'
-                    />
-                  </div>
-                </div>
                 <div className='inputControl'></div>
               </div>
+              
             </div>
           </div>
         </div>

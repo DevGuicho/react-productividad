@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../assets/styles/Dashboard.css';
+import '../assets/styles/UserCord.css';
 import ListProduct from '../components/ListProduct';
 import User from '../components/Users';
 import NavbarCoordinador from '../components/NavbarCoordinador';
@@ -43,7 +44,10 @@ const DashboardCordinator = () => {
             <User key={producto.id} product={producto} type={producto.type} />
           ))}
           {filteredProducts.length === 0 ? (
-            <div>NO hay productos para mostrar</div>
+            <div className='emptyProduct'>
+            <i className='fas fa-times-circle'></i>
+            No hay Alumnos Registrados
+          </div>
           ) : null}
         </ListProduct>
       </div>
