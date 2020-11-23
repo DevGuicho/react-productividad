@@ -19,10 +19,7 @@
   margin-bottom: 50px;
 }
 
-<<<<<<< HEAD
-.userCard__outline {
-=======
-.emptyProduct{
+.emptyProduct {
   margin-top: 20%;
   margin-right: 300px;
   font-size: 1.8em;
@@ -31,14 +28,13 @@
   display: flex;
   flex-direction: column;
 }
-.emptyProduct i{
+.emptyProduct i {
   font-size: 2.5em;
   color: #8f8f8f;
   align-self: center;
   padding-bottom: 10px;
 }
-.userCard__outline{
->>>>>>> lilia
+.userCard__outline {
   margin: 35% 5% 10% 1%;
   margin-top: 35%;
   margin-bottom: 10%;
