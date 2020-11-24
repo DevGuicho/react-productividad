@@ -1,6 +1,6 @@
 const productos = [
   {
-    id: '10535ad2 a4901090e3e37dcad0015fc9',
+    id: '10535ad2a4901090e3e37dcad0015fc9',
     titulo:
       'Las profesiones, las lenguas y el español. Una mirada hacia el futuro',
     congreso:
@@ -38,7 +38,7 @@ const productos = [
     type: 'capituloLibro',
     libro: {
       titulo: 'Advanced organic chemistry : reaction mechanisms',
-      editorial: '',
+      editorial: 'Limusa',
       edicion: 'En Linea',
       isbn: 'ISBN 9780121381103',
     },
@@ -52,7 +52,7 @@ const productos = [
     tesis: 'No Relaciodo con Tesis',
     type: 'Libro',
     libro: {
-      editorial: '',
+      editorial: 'Prentice Hall',
       edicion: 'En Linea',
       isbn: 'ISBN 9780121381103',
     },
