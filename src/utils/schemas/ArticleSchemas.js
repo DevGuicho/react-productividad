@@ -21,11 +21,13 @@ const magazineDOISchema = Yup.string('Formarto Invalido')
 
 const ArticleCongressSchema = Yup.object({
   titulo: titleSchema,
-  congreso: congressSchema,
-  fecha: dateSchema,
   autor: autorSchema,
   tesis: tesisShema,
   url: urlSchema,
+  congreso: Yup.object({
+    nombre: congressSchema,
+    fecha: dateSchema,
+  }),
 });
 const ArticleMagazineSchema = Yup.object({
   titulo: titleSchema,

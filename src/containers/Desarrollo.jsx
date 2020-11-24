@@ -14,14 +14,14 @@ const Desarrollo = () => {
     : {
         id: 0,
         titulo: '',
-        fecha: '',
         autor: '',
         url: '',
         tesis: '',
         type: 'Desarrollo',
-        licencia: '',
         desarrollo: {
           detalles: '',
+          fecha: '',
+          licencia: '',
         },
       };
   const onSubmit = (values) => {
@@ -63,7 +63,7 @@ const Desarrollo = () => {
           </div>
           <div className='form'>
             <div className='outline__formD'>
-            <h2>Informacion del Desarrollo</h2>
+              <h2>Informacion del Desarrollo</h2>
               <div className='input__RowD'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='titulo'>
@@ -88,12 +88,12 @@ const Desarrollo = () => {
                   <Field
                     className='input'
                     type='text'
-                    name='fecha'
+                    name='desarrollo.fecha'
                     id='fecha'
                   />
                   <ErrorMessage
                     className='error'
-                    name='fecha'
+                    name='desarrollo.fecha'
                     component='span'
                   />
                 </div>
@@ -106,12 +106,12 @@ const Desarrollo = () => {
                   <Field
                     className='input'
                     type='text'
-                    name='licencia'
+                    name='desarrollo.licencia'
                     id='licencia'
                   />
                   <ErrorMessage
                     className='error'
-                    name='licencia'
+                    name='desarrollo.licencia'
                     component='span'
                   />
                 </div>
@@ -131,7 +131,6 @@ const Desarrollo = () => {
                     component='span'
                   />
                 </div>
-                
               </div>
               <h2>Informacion General</h2>
               <div className='input__RowD'>
@@ -157,8 +156,6 @@ const Desarrollo = () => {
                     component='span'
                   />
                 </div>
-
-                
               </div>
               <div className='input__RowD'>
                 <div className='inputControl'>

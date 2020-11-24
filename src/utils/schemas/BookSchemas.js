@@ -17,20 +17,19 @@ const bookISBNSchema = Yup.string('Formato Invalido')
 
 const BookSchema = Yup.object({
   titulo: titleSchema,
-  fecha: dateSchema,
   autor: autorSchema,
   tesis: tesisSchema,
   url: urlSchema,
   libro: Yup.object({
     editorial: bookEditorialSchema,
     edicion: bookEdicionSchema,
+    fecha: dateSchema,
     isbn: bookISBNSchema,
   }),
 });
 
 const ChapterBookSchema = Yup.object({
   titulo: titleSchema,
-  fecha: dateSchema,
   autor: autorSchema,
   tesis: tesisSchema,
   url: urlSchema,
@@ -38,6 +37,7 @@ const ChapterBookSchema = Yup.object({
     titulo: titleSchema,
     editorial: bookEditorialSchema,
     edicion: bookEdicionSchema,
+    fecha: dateSchema,
     isbn: bookISBNSchema,
   }),
 });

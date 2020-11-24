@@ -3,6 +3,7 @@ import { usuarios } from '../utils/mocks/usuarios';
 const initialStore = {
   productos,
   usuarios,
+  loading: true,
   place: {
     home: true,
     users: false,
@@ -33,6 +34,12 @@ const storeReducer = (state, action) => {
       return {
         ...state,
         place: action.value,
+      };
+    case 'FETCH_DATA':
+      return {
+        ...state,
+        productos: [...state.productos, action.value],
+        loading: false,
       };
     default:
       break;

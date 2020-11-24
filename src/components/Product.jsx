@@ -31,8 +31,8 @@ const Product = ({ product, type, isCordinator }) => {
       );
       return (
         <ul className='product__details--list'>
-          <li>{product.congreso}</li>
-          <li>{product.fecha}</li>
+          <li>{product.congreso.nombre}</li>
+          <li>{product.congreso.fecha}</li>
         </ul>
       );
     } else if (type === 'articuloRevista') {
@@ -59,7 +59,7 @@ const Product = ({ product, type, isCordinator }) => {
           <li>{product.libro.titulo}</li>
           <li>{product.libro.editorial}</li>
           <li>{product.libro.edicion}</li>
-          <li>{product.fecha}</li>
+          <li>{product.libro.fecha}</li>
           <li>{product.libro.isbn}</li>
         </ul>
       );
@@ -71,7 +71,7 @@ const Product = ({ product, type, isCordinator }) => {
         <ul className='product__details--list'>
           <li>{product.libro.editorial}</li>
           <li>{product.libro.edicion}</li>
-          <li>{product.fecha}</li>
+          <li>{product.libro.fecha}</li>
           <li>{product.libro.isbn}</li>
         </ul>
       );
@@ -107,15 +107,25 @@ const Product = ({ product, type, isCordinator }) => {
       </div>
       <div className={`product__details details__${type}`}>
         {firstItem}
-        <ul className='product__details--general'>
-          <li>{product.autor}</li>
-          {product.licencia ? <li>{product.fecha}</li> : null}
-          <li>{product.tesis}</li>
-          {product.licencia ? <li>{product.licencia}</li> : null}
-          <li>
-            <a href={product.url}>Link del Repositorio</a>
-          </li>
-        </ul>
+        {product.desarrollo ? (
+          <ul className='product__details--general'>
+            <li>{product.autor}</li>
+            <li>{product.tesis}</li>
+            <li>
+              <a href={product.url}>Link del Repositorio</a>
+            </li>
+            <li>{product.desarrollo.licencia}</li>
+            <li>{product.desarrollo.fecha}</li>
+          </ul>
+        ) : (
+          <ul className='product__details--general'>
+            <li>{product.autor}</li>
+            <li>{product.tesis}</li>
+            <li>
+              <a href={product.url}>Link del Repositorio</a>
+            </li>
+          </ul>
+        )}
       </div>
     </article>
   );

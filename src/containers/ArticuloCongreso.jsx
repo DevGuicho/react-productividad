@@ -15,12 +15,14 @@ const ArticuloCongreso = () => {
     : {
         id: 0,
         titulo: '',
-        congreso: '',
-        fecha: '',
         autor: '',
         url: '',
         tesis: '',
         type: 'articuloCongreso',
+        congreso: {
+          nombre: '',
+          fecha: '',
+        },
       };
   const onSubmit = (values) => {
     if (location.state) {
@@ -63,7 +65,7 @@ const ArticuloCongreso = () => {
 
           <div className='form'>
             <div className='outline__formAC'>
-            <h2>Informacion de Articulo de Congreso</h2>
+              <h2>Informacion de Articulo de Congreso</h2>
               <div className='input__RowAC'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='titulo'>
@@ -88,12 +90,12 @@ const ArticuloCongreso = () => {
                   <Field
                     className='input'
                     type='text'
-                    name='congreso'
+                    name='congreso.nombre'
                     id='congreso'
                   />
                   <ErrorMessage
                     className='error'
-                    name='congreso'
+                    name='congreso.nombre'
                     component='span'
                   />
                 </div>
@@ -106,12 +108,12 @@ const ArticuloCongreso = () => {
                   <Field
                     className='input'
                     type='date'
-                    name='fecha'
+                    name='congreso.fecha'
                     id='fecha'
                   />
                   <ErrorMessage
                     className='error'
-                    name='fecha'
+                    name='congreso.fecha'
                     component='span'
                   />
                 </div>
@@ -119,31 +121,31 @@ const ArticuloCongreso = () => {
               </div>
               <h2>Informacion General</h2>
               <div className='input__RowAC'>
-                  <div className='inputControl'>
-                    <label className='text__label' htmlFor='url'>
-                      URL del evento
-                     </label>
-                      <Field className='input' type='text' name='url' id='url' />
-                      <ErrorMessage className='error' name='url' component='span' />
-                 </div>
-                  <div className='inputControl'>
-                    <label className='text__label' htmlFor='autor'>
-                      Tipo de autor
-                     </label>
-                    <Field className='input' as='select' name='autor' id='autor'>
-                      <option value=''>Seleccione una opción</option>
-                      <option value='Autor Principal'>Principal</option>
-                      <option value='Coautor'>Secundario</option>
-                    </Field>
-                    <ErrorMessage
-                      className='error'
-                      name='autor'
-                      component='span'
-                    />
-                  </div>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='url'>
+                    URL del evento
+                  </label>
+                  <Field className='input' type='text' name='url' id='url' />
+                  <ErrorMessage className='error' name='url' component='span' />
                 </div>
-                <div className='input__RowAC'>
-                  <div className='inputControl'>
+                <div className='inputControl'>
+                  <label className='text__label' htmlFor='autor'>
+                    Tipo de autor
+                  </label>
+                  <Field className='input' as='select' name='autor' id='autor'>
+                    <option value=''>Seleccione una opción</option>
+                    <option value='Autor Principal'>Principal</option>
+                    <option value='Coautor'>Secundario</option>
+                  </Field>
+                  <ErrorMessage
+                    className='error'
+                    name='autor'
+                    component='span'
+                  />
+                </div>
+              </div>
+              <div className='input__RowAC'>
+                <div className='inputControl'>
                   <label className='text__label' htmlFor='tesis'>
                     ¿Esta relacionado con su tesis?
                   </label>
@@ -158,9 +160,8 @@ const ArticuloCongreso = () => {
                     component='span'
                   />
                 </div>
-                  <div className='inputControl'></div>
-                </div>
-              
+                <div className='inputControl'></div>
+              </div>
             </div>
           </div>
         </div>

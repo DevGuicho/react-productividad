@@ -9,13 +9,13 @@ const titleSchema = Yup.string().required('Campo Obligatorio');
 const detailSchema = Yup.string().required('Campo Obligatorio');
 const DevelopSchema = Yup.object({
   titulo: titleSchema,
-  fecha: dateSchema,
   autor: autorSchema,
   tesis: tesisSchema,
   url: urlSchema,
-  licencia: Yup.string().required('Campo Obligatorio'),
   desarrollo: Yup.object({
+    licencia: Yup.string().required('Campo Obligatorio'),
     detalles: detailSchema,
+    fecha: dateSchema,
   }),
 });
 

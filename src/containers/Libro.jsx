@@ -15,7 +15,6 @@ const Libro = () => {
     : {
         id: 0,
         titulo: '',
-        fecha: '',
         autor: '',
         url: '',
         tesis: '',
@@ -23,6 +22,7 @@ const Libro = () => {
         libro: {
           editorial: '',
           edicion: '',
+          fecha: '',
           isbn: '',
         },
       };
@@ -64,7 +64,7 @@ const Libro = () => {
           </div>
           <div className='form'>
             <div className='outline__formL'>
-            <h2>Informacion del Libro</h2>
+              <h2>Informacion del Libro</h2>
               <div className='input__RowL'>
                 <div className='inputControl'>
                   <label className='text__label' htmlFor='titulo'>
@@ -123,12 +123,12 @@ const Libro = () => {
                   <Field
                     className='input'
                     type='text'
-                    name='fecha'
+                    name='libro.fecha'
                     id='fecha'
                   />
                   <ErrorMessage
                     className='error'
-                    name='fecha'
+                    name='libro.fecha'
                     component='span'
                   />
                 </div>
