@@ -75,29 +75,6 @@
   border-radius: 10px;
 }
 
-/* .doctorado {
-  display: flex;
-  flex-flow: row wrap;
-  position: relative;
-  padding: 10px 20px;
-  margin-bottom: 30px;
-  width: calc(100% - 20px);
-  border: 2px solid var(--greenArticles);
-  border-radius: 0 15px 15px 0;
-  color: var(--greenArticles);
-}
-
-.maestria {
-  display: flex;
-  flex-flow: row wrap;
-  position: relative;
-  padding: 10px 20px;
-  margin-bottom: 30px;
-  width: calc(100% - 20px);
-  border: 2px solid var(--purpleArticles);
-  border-radius: 0 15px 15px 0;
-  color: var(--purpleArticles);
-} */
 .doctorado::after {
   content: '';
   position: absolute;
