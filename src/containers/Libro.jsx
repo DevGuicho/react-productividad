@@ -28,19 +28,43 @@ const Libro = () => {
       };
   const onSubmit = (values) => {
     if (location.state) {
-      dispatch({
-        type: 'UPDATE_PRODUCT',
-        value: values,
-      });
+      delete values._id;
+      fetch(
+        `https://productividad-api-devguicho.vercel.app/products/${values.id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        }
+      )
+        .then((res) => {
+          dispatch({
+            type: 'UPDATE_PRODUCT',
+            value: values,
+          });
+        })
+        .catch((err) => false);
     } else {
       values.id = md5(values.titulo);
-      dispatch({
-        type: 'ADD_PRODUCT',
-        value: values,
-      });
+      fetch('https://productividad-api-devguicho.vercel.app/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+        .then((res) => {
+          dispatch({
+            type: 'ADD_PRODUCT',
+            value: values,
+          });
+        })
+        .catch((err) => console.log(err));
     }
 
-    historia.push('/');
+    historia.push('/products');
   };
   const validationSchema = BookSchema;
   return (
@@ -167,7 +191,7 @@ const Libro = () => {
                   </label>
                   <Field className='input' as='select' name='autor' id='autor'>
                     <option value=''>Seleccione una opción</option>
-                    <option value='Autor Principal'>Principal</option>
+                    <option value='Principal'>Principal</option>
                     <option value='Coautor'>Secundario</option>
                   </Field>
                   <ErrorMessage
@@ -184,7 +208,7 @@ const Libro = () => {
                   </label>
                   <Field className='input' as='select' name='tesis' id='tesis'>
                     <option value=''>Seleccione una opción</option>
-                    <option value='Relacionado con tesis '>Si</option>
+                    <option value='Relacionado con tesis'>Si</option>
                     <option value='No relacionado con tesis'>No</option>
                   </Field>
                   <ErrorMessage

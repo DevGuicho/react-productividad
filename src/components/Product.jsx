@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../assets/styles/components/Product.css';
 import { useDispatch } from '../store/StoreProvider';
@@ -7,13 +7,30 @@ import imgArtMagazine from '../assets/img/articuloRevista.png';
 import imgChapBook from '../assets/img/capituloLibro.png';
 import imgBook from '../assets/img/libro.png';
 import imgDevelop from '../assets/img/desarrollo.png';
-const Product = ({ product, type, isCordinator }) => {
+
+const Product = ({
+  product,
+  type,
+  isCordinator,
+  filteredProducts,
+  setFilteredProducts,
+}) => {
   let route = '';
   let tag = '';
   let img = '';
   const dispatch = useDispatch();
   const history = useHistory();
+
   const deleteProduct = async () => {
+    fetch(
+      `https://productividad-api-devguicho.vercel.app/products/${product.id}`,
+      {
+        method: 'DELETE',
+      }
+    )
+      .then((res) => true)
+      .catch((err) => false);
+
     await dispatch({
       type: 'DELETE_PRODUCT',
       value: product.id,

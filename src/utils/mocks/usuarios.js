@@ -8,17 +8,20 @@ const usuarios = [
     estudiante: 'Maestria',
     productos: [
       {
-        id: 1,
+        id: '10535ad2a4901090e3e37dcad0015fc9',
         titulo:
           'Las profesiones, las lenguas y el español. Una mirada hacia el futuro',
-        congreso:
-          'Congreso Internacional de Español para Fines Específicos (CIEFE)',
-        fecha: '2018',
+
         autor: 'Autor Principal',
         url:
           'http://www.educacionyfp.gob.es/paisesbajos/dam/jcr:6741f1ec-7200-4d64-b36d-5cbaae68641f/actas.vi.ciefe.def.pdf',
         tesis: 'No Relacionado con Tesis',
         type: 'articuloCongreso',
+        congreso: {
+          nombre:
+            'Congreso Internacional de Español para Fines Específicos (CIEFE)',
+          fecha: '2018-01-12',
+        },
       },
     ],
   },
@@ -31,17 +34,18 @@ const usuarios = [
     estudiante: 'Doctorado',
     productos: [
       {
-        id: 4,
-        titulo: 'Advanced organic chemistry : reaction mechanisms',
-        fecha: '2002',
-        autor: 'Principal',
-        url: 'http://www.sciencedirect.com/science/book/9780121381103',
+        id: '12ffb13cd973dc2702501efdb3dc3b63',
+        titulo: 'Técnicas, materiales y aplicaciones en nanotecnología',
+        autor: 'Coautor',
+        url: 'https://www.redalyc.org/pdf/535/53541201.pdf',
         tesis: 'No Relaciodo con Tesis',
-        type: 'Libro',
-        libro: {
-          editorial: '',
-          edicion: 'En Linea',
-          isbn: 'ISBN e-book 9780121381103',
+        type: 'articuloRevista',
+        revista: {
+          nombre: 'Acta Bioquímica Clínica Latinoamericana',
+          tipo: 'No Arbitrada',
+          indice: 'CONACyT',
+          isnn: '0325-2957',
+          doi: '10.1145/1067268.1067287',
         },
       },
     ],

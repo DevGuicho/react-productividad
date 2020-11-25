@@ -5,7 +5,7 @@ import '../assets/styles/components/User.css';
 const User = ({ product }) => {
   const historia = useHistory();
   const handleClick = () => {
-    historia.push('/productos-usaurio', { params: product });
+    historia.push('/productos-usuario', { params: product });
   };
   return (
     <article className={`user__article`}>

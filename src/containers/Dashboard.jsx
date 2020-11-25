@@ -5,50 +5,14 @@ import Navbar from '../components/Navbar';
 import ListProduct from '../components/ListProduct';
 import Product from '../components/Product';
 import { useStore } from '../store/StoreProvider';
+import useInitialState from '../hooks/useInitialState';
 // Containears-> Componentes Mas Grandes
 const Dashboar = () => {
-  const productList = useStore().productos;
+  useInitialState();
 
-  const [search, setSearch] = useState('all');
-  const number = {
-    all: productList.length,
-    articulos: productList.filter(articulos).length,
-    libros: productList.filter(libros).length,
-    desarrollos: productList.filter((product) => product.type === 'Desarrollo')
-      .length,
-  };
-  function articulos(elemento) {
-    if (
-      elemento.type === 'articuloCongreso' ||
-      elemento.type === 'articuloRevista'
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  function libros(elemento) {
-    if (elemento.type === 'capituloLibro' || elemento.type === 'Libro') {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const { loading } = useStore();
 
-  const filterProducts = () => {
-    if (search === 'articulos') {
-      return productList.filter(articulos);
-    } else if (search === 'libros') {
-      return productList.filter(libros);
-    } else if (search === 'desarrollos') {
-      return productList.filter((product) => product.type === 'Desarrollo');
-    } else if (search === 'all') {
-      return productList;
-    } else {
-      return [];
-    }
-  };
-  const filteredProducts = filterProducts();
   return (
     <section className='main'>
       <div className='productTable'>
@@ -59,18 +23,21 @@ const Dashboar = () => {
             <span>Agregar producto</span>
           </Link>
         </div>
-        <Navbar selector={setSearch} number={number} />
+        <Navbar setFilteredProducts={setFilteredProducts} />
         <ListProduct>
-          {filteredProducts.map((producto) => (
-            <Product
-              key={producto.id}
-              product={producto}
-              type={producto.type}
-            />
-          ))}
-          {filteredProducts.length === 0 ? (
-            <div>NO hay productos para mostrar</div>
-          ) : null}
+          {loading ? (
+            <div>loading...</div>
+          ) : (
+            filteredProducts.map((producto) => (
+              <Product
+                key={producto.id}
+                product={producto}
+                type={producto.type}
+                setFilteredProducts={setFilteredProducts}
+                filteredProducts={filteredProducts}
+              />
+            ))
+          )}
         </ListProduct>
       </div>
     </section>

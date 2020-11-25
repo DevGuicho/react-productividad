@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
-import { date } from 'yup';
-import { useStore, useDispatch } from '../store/StoreProvider';
+import { useDispatch } from '../store/StoreProvider';
 
-const API = 'https://productividad-blue.vercel.app/api/products';
+const API = 'https://productividad-api-devguicho.vercel.app/products';
 
 const useInitialState = () => {
   const dispatch = useDispatch();

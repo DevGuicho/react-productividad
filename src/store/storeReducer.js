@@ -1,7 +1,6 @@
-import { productos } from '../utils/mocks/productos';
 import { usuarios } from '../utils/mocks/usuarios';
 const initialStore = {
-  productos,
+  productos: [],
   usuarios,
   loading: true,
   place: {
@@ -29,7 +28,11 @@ const storeReducer = (state, action) => {
         (product) => product.id === action.value.id
       );
       state.productos[index] = action.value;
-      return state;
+      /* state.productos[index] = action.value;
+      return state; */
+      return {
+        ...state,
+      };
     case 'SET_PLACE':
       return {
         ...state,
@@ -38,7 +41,7 @@ const storeReducer = (state, action) => {
     case 'FETCH_DATA':
       return {
         ...state,
-        productos: [...state.productos, action.value],
+        productos: action.value,
         loading: false,
       };
     default:

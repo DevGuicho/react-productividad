@@ -1,42 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../assets/styles/components/Navbar.css';
-import { useStore } from '../store/StoreProvider';
 
-const Navbar = ({ setFilteredProducts }) => {
-  const { productos } = useStore();
-  useEffect(() => {
-    setItems({
-      all: productos.length,
-      articulos: productos.filter((producto) =>
-        producto.type.match(/(articuloCongreso)|(articuloRevista)$/)
-      ).length,
-      libros: productos.filter((producto) =>
-        producto.type.match(/(capituloLibro)|(Libro)$/)
-      ).length,
-      desarrollos: productos.filter((producto) =>
-        producto.type.match(/(Desarrollo)$/)
-      ).length,
-    });
-    handleClick(selection.selection);
-  }, [productos]);
-  const [items, setItems] = useState({
-    all: productos.length,
-    articulos: productos.filter((producto) =>
-      producto.type.match(/(articuloCongreso)|(articuloRevista)$/)
-    ).length,
-    libros: productos.filter((producto) =>
-      producto.type.match(/(capituloLibro)|(Libro)$/)
-    ).length,
-    desarrollos: productos.filter((producto) =>
-      producto.type.match(/(Desarrollo)$/)
-    ).length,
-  });
+const Navbar = ({ setFilteredProducts, products }) => {
   const [selection, setSelection] = useState({
     all: true,
     articles: false,
     books: false,
     developments: false,
     selection: 'all',
+  });
+  const [items] = useState({
+    all: products.length,
+    articulos: products.filter((producto) =>
+      producto.type.match(/(articuloCongreso)|(articuloRevista)$/)
+    ).length,
+    libros: products.filter((producto) =>
+      producto.type.match(/(capituloLibro)|(Libro)$/)
+    ).length,
+    desarrollos: products.filter((producto) =>
+      producto.type.match(/(Desarrollo)$/)
+    ).length,
   });
   const handleClick = (sel) => {
     if (sel === 'all') {
@@ -47,7 +30,7 @@ const Navbar = ({ setFilteredProducts }) => {
         developments: false,
         selection: 'all',
       });
-      setFilteredProducts(productos);
+      setFilteredProducts(products);
     } else if (sel === 'articulos') {
       setSelection({
         all: false,
@@ -57,7 +40,7 @@ const Navbar = ({ setFilteredProducts }) => {
         selection: 'articulos',
       });
       setFilteredProducts(
-        productos.filter((producto) =>
+        products.filter((producto) =>
           producto.type.match(/(articuloCongreso)|(articuloRevista)$/)
         )
       );
@@ -70,7 +53,7 @@ const Navbar = ({ setFilteredProducts }) => {
         selection: 'libros',
       });
       setFilteredProducts(
-        productos.filter((producto) =>
+        products.filter((producto) =>
           producto.type.match(/(capituloLibro)|(Libro)$/)
         )
       );
@@ -83,7 +66,7 @@ const Navbar = ({ setFilteredProducts }) => {
         selection: 'desarrollos',
       });
       setFilteredProducts(
-        productos.filter((producto) => producto.type.match(/(Desarrollo)$/))
+        products.filter((producto) => producto.type.match(/(Desarrollo)$/))
       );
     }
   };

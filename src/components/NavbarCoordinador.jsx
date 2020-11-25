@@ -1,7 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../assets/styles/components/Navbar.css';
+import { useStore } from '../store/StoreProvider';
 
-const NavbarCoordinador = ({ selector, number }) => {
+const NavbarCoordinador = ({ setFilteredUsers }) => {
+  const { usuarios } = useStore();
+
+  useEffect(() => {
+    setItems({
+      all: usuarios.length,
+      maestria: usuarios.filter((producto) =>
+        producto.estudiante.match(/(Maestria)$/)
+      ).length,
+      doctorado: usuarios.filter((producto) =>
+        producto.estudiante.match(/(Doctorado)$/)
+      ).length,
+    });
+    handleClick(selection.selection);
+  }, [usuarios]);
+
+  const [items, setItems] = useState({
+    all: usuarios.length,
+    maestria: usuarios.filter((producto) =>
+      producto.estudiante.match(/(Maestria)$/)
+    ).length,
+    doctorado: usuarios.filter((producto) =>
+      producto.estudiante.match(/(Doctorado)$/)
+    ).length,
+  });
+
   const [selection, setSelection] = useState({
     all: true,
     articles: false,
@@ -16,23 +42,27 @@ const NavbarCoordinador = ({ selector, number }) => {
         books: false,
         developments: false,
       });
-      selector(sel);
-    } else if (sel === 'articulos') {
+      setFilteredUsers(usuarios);
+    } else if (sel === 'Maestria') {
       setSelection({
         all: false,
         articles: true,
         books: false,
         developments: false,
       });
-      selector('Maestria');
-    } else if (sel === 'libros') {
+      setFilteredUsers(
+        usuarios.filter((producto) => producto.estudiante.match(/(Maestria)$/))
+      );
+    } else if (sel === 'Doctorado') {
       setSelection({
         all: false,
         articles: false,
         books: true,
         developments: false,
       });
-      selector('Doctorado');
+      setFilteredUsers(
+        usuarios.filter((producto) => producto.estudiante.match(/(Doctorado)$/))
+      );
     }
   };
   return (
@@ -45,27 +75,27 @@ const NavbarCoordinador = ({ selector, number }) => {
           onClick={() => handleClick('all')}
         >
           <div className='a'>
-            Todo<span>{number.all}</span>
+            Todo<span>{items.all}</span>
           </div>
         </li>
         <li
           className={`productTable__nav--item ${
             selection.articles ? 'selected' : ''
           }`}
-          onClick={() => handleClick('articulos')}
+          onClick={() => handleClick('Maestria')}
         >
           <div className='a'>
-            Maestria<span>{number.maestria}</span>
+            Maestria<span>{items.maestria}</span>
           </div>
         </li>
         <li
           className={`productTable__nav--item ${
             selection.books ? 'selected' : ''
           }`}
-          onClick={() => handleClick('libros')}
+          onClick={() => handleClick('Doctorado')}
         >
           <div className='a'>
-            Doctorado<span>{number.doctorado}</span>
+            Doctorado<span>{items.doctorado}</span>
           </div>
         </li>
       </ul>

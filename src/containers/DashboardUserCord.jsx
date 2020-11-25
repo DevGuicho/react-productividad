@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../assets/styles/Dashboard.css';
 import '../assets/styles/UserCord.css';
-import Navbar from '../components/Navbar';
+import NavbarProductsCoordinator from '../components/NavbarProductsCoordinator';
 import ListProduct from '../components/ListProduct';
 import Product from '../components/Product';
 
@@ -10,46 +10,8 @@ const DashboardUserCord = () => {
   const location = useLocation();
   const productList = location.state.params.productos;
   const usuario = location.state.params;
-  const [search, setSearch] = useState('all');
-  const number = {
-    all: productList.length,
-    articulos: productList.filter(articulos).length,
-    libros: productList.filter(libros).length,
-    desarrollos: productList.filter((product) => product.type === 'Desarrollo')
-      .length,
-  };
-  function articulos(elemento) {
-    if (
-      elemento.type === 'articuloCongreso' ||
-      elemento.type === 'articuloRevista'
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  function libros(elemento) {
-    if (elemento.type === 'capituloLibro' || elemento.type === 'Libro') {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  const [filteredProducts, setFilteredProducts] = useState(productList);
 
-  const filterProducts = () => {
-    if (search === 'articulos') {
-      return productList.filter(articulos);
-    } else if (search === 'libros') {
-      return productList.filter(libros);
-    } else if (search === 'desarrollos') {
-      return productList.filter((product) => product.type === 'Desarrollo');
-    } else if (search === 'all') {
-      return productList;
-    } else {
-      return [];
-    }
-  };
-  const filteredProducts = filterProducts();
   return (
     <section className='main'>
       <div className='productTable'>
@@ -61,7 +23,10 @@ const DashboardUserCord = () => {
             <p>{usuario.nombre}</p>
           </div>
         </div>
-        <Navbar selector={setSearch} number={number} />
+        <NavbarProductsCoordinator
+          setFilteredProducts={setFilteredProducts}
+          products={productList}
+        />
         <ListProduct>
           {filteredProducts.map((producto) => (
             <Product
@@ -72,7 +37,6 @@ const DashboardUserCord = () => {
             />
           ))}
           {filteredProducts.length === 0 ? (
-            
             <div className='emptyProduct'>
               <i className='fas fa-times-circle'></i>
               No hay Productos para Mostrar
@@ -86,9 +50,9 @@ const DashboardUserCord = () => {
             <i className='fas fa-user userCard__avatar--icon'></i>
           </div>
           <div className='userCard__datos'>
-            <ol className="dataUser">
-              <li className="userName"> 
-              <span>{usuario.nombre}</span>
+            <ol className='dataUser'>
+              <li className='userName'>
+                <span>{usuario.nombre}</span>
               </li>
               <li>
                 <i className='fas fa-fingerprint'></i>

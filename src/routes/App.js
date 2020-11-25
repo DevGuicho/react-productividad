@@ -30,7 +30,7 @@ const App = () => {
           <Route exact path='/desarrollo' component={Desarrollo} />
           <Route
             exact
-            path='/productos-usaurio'
+            path='/productos-usuario'
             component={DashboardUserCord}
           />
         </Switch>
