@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import '../assets/styles/Dashboard.css';
 import '../assets/styles/UserCord.css';
 import NavbarProductsCoordinator from '../components/NavbarProductsCoordinator';
-import ListProduct from '../components/ListProduct';
-import Product from '../components/Product';
+import ListProduct from '../components/product/ListProduct';
+import Product from '../components/product/Product';
 
 const DashboardUserCord = () => {
   const location = useLocation();

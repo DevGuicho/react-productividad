@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import '../assets/styles/Dashboard.css';
 import '../assets/styles/UserCord.css';
-import ListProduct from '../components/ListProduct';
-import User from '../components/Users';
-import NavbarCoordinador from '../components/NavbarCoordinador';
+import ListProduct from '../components/product/ListProduct';
+import User from '../components/student/Users';
+import NavbarCoordinador from '../components/student/NavbarCoordinador';
 import StudentContext from '../context/students/studentContext';
 
 const DashboardCordinator = () => {
