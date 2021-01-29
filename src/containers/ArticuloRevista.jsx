@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import md5 from 'md5';
 import '../assets/styles/ArticuloRevista.css'; //importarat
-
-import { useDispatch } from '../store/StoreProvider';
+import ProductContext from '../context/products/productContext';
 import { ArticleMagazineSchema } from '../utils/schemas/ArticleSchemas';
+
 const ArticuloRevista = () => {
-  const dispatch = useDispatch();
+  /* const dispatch = useDispatch(); */
   const historia = useHistory();
   const location = useLocation();
+  const productContext = useContext(ProductContext);
+  const { addProduct, updateProduct, error } = productContext;
+
   const initialValues = location.state
     ? location.state.params
     : {
@@ -27,47 +30,19 @@ const ArticuloRevista = () => {
           doi: '',
         },
       };
-  const onSubmit = (values) => {
-    if (location.state) {
-      delete values._id;
-      fetch(
-        `https://productividad-api-devguicho.vercel.app/products/${values.id}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(values),
-        }
-      )
-        .then((res) => {
-          dispatch({
-            type: 'UPDATE_PRODUCT',
-            value: values,
-          });
-        })
-        .catch((err) => false);
-    } else {
-      values.id = md5(values.titulo);
-      fetch('https://productividad-api-devguicho.vercel.app/products', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      })
-        .then((res) => {
-          dispatch({
-            type: 'ADD_PRODUCT',
-            value: values,
-          });
-        })
-        .catch((err) => console.log(err));
-    }
 
-    historia.push('/products');
+  const onSubmit = (product) => {
+    if (location.state) {
+      delete product._id;
+      updateProduct(product);
+    } else {
+      product.id = md5(Date.now());
+      addProduct(product);
+    }
+    if (!error) historia.push('/products');
   };
   const validationSchema = ArticleMagazineSchema;
+
   return (
     <Formik
       initialValues={initialValues}

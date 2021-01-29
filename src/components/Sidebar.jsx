@@ -1,57 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import '../assets/styles/components/Sidebar.css';
-import { useDispatch, useStore } from '../store/StoreProvider';
-const Sidebar = () => {
+
+const Sidebar = (props) => {
   const history = useHistory();
-  const { place } = useStore();
-  const dispatch = useDispatch();
+  const [url, setUrl] = useState(history.location.pathname);
+  useEffect(() => {
+    setUrl(history.location.pathname);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   /* const location = useLocation(); */
 
   const handleClick = (e) => {
-    if (e === 'home') {
-      dispatch({
-        type: 'SET_PLACE',
-        value: {
-          home: true,
-          users: false,
-          products: false,
-          config: false,
-        },
-      });
-    } else if (e === 'products') {
-      dispatch({
-        type: 'SET_PLACE',
-        value: {
-          home: false,
-          users: false,
-          products: true,
-          config: false,
-        },
-      });
-    } else if (e === 'users') {
-      dispatch({
-        type: 'SET_PLACE',
-        value: {
-          home: false,
-          users: true,
-          products: false,
-          config: false,
-        },
-      });
-    } else if (e === 'config') {
-      dispatch({
-        type: 'SET_PLACE',
-        value: {
-          home: false,
-          users: false,
-          products: false,
-          config: true,
-        },
-      });
-    } else if (e === 'back') {
+    if (e === 'back') {
       history.goBack();
+
       /* console.log(location.pathname); */
+    } else {
+      setUrl(e);
     }
   };
   return (
@@ -63,26 +30,29 @@ const Sidebar = () => {
               <i className='fas fa-arrow-left'></i>
             </div>
           </li>
-          <li className={`${place.home ? 'selection' : ''}`}>
-            <Link to='/' onClick={() => handleClick('home')}>
+          <li className={`${url === '/' ? 'selection' : ''}`}>
+            <Link to='/' onClick={() => handleClick('/')}>
               <i className='fas fa-home'></i>
               <span className='link__text'>Home</span>
             </Link>
           </li>
-          <li className={`${place.users ? 'selection' : ''}`}>
-            <Link to='/students' onClick={() => handleClick('users')}>
+          <li className={`${url === '/students' ? 'selection' : ''}`}>
+            <Link to='/students' onClick={() => handleClick('/students')}>
               <i className='fas fa-users'></i>
               <span className='link__text'>Alumnos</span>
             </Link>
           </li>
-          <li className={`${place.products ? 'selection' : ''}`}>
-            <Link to='/products' onClick={() => handleClick('products')}>
+          <li className={`${url === '/products' ? 'selection' : ''}`}>
+            <Link to='/products' onClick={() => handleClick('/products')}>
               <i className='fas fa-list-alt'></i>
               <span className='link__text'>Productos</span>
             </Link>
           </li>
-          <li className={`${place.config ? 'selection' : ''}`}>
-            <Link to='/configuration' onClick={() => handleClick('config')}>
+          <li className={`${url === '/configuration' ? 'selection' : ''}`}>
+            <Link
+              to='/configuration'
+              onClick={() => handleClick('/configuration')}
+            >
               <i className='fas fa-cog'></i>
               <span className='link__text--prefer'>Preferencias</span>
             </Link>

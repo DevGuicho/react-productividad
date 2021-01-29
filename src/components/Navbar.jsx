@@ -1,25 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../assets/styles/components/Navbar.css';
-import { useStore } from '../store/StoreProvider';
+import ProductContext from '../context/products/productContext';
 
-const Navbar = ({ setFilteredProducts }) => {
-  const { productos } = useStore();
-  useEffect(() => {
-    setItems({
-      all: productos.length,
-      articulos: productos.filter((producto) =>
-        producto.type.match(/(articuloCongreso)|(articuloRevista)$/)
-      ).length,
-      libros: productos.filter((producto) =>
-        producto.type.match(/(capituloLibro)|(Libro)$/)
-      ).length,
-      desarrollos: productos.filter((producto) =>
-        producto.type.match(/(Desarrollo)$/)
-      ).length,
-    });
-    handleClick(selection.selection);
-  }, [productos]);
-  const [items, setItems] = useState({
+const Navbar = () => {
+  const productContext = useContext(ProductContext);
+  const { productos, filterProducts } = productContext;
+
+  const countProducts = () => ({
     all: productos.length,
     articulos: productos.filter((producto) =>
       producto.type.match(/(articuloCongreso)|(articuloRevista)$/)
@@ -31,68 +18,25 @@ const Navbar = ({ setFilteredProducts }) => {
       producto.type.match(/(Desarrollo)$/)
     ).length,
   });
-  const [selection, setSelection] = useState({
-    all: true,
-    articles: false,
-    books: false,
-    developments: false,
-    selection: 'all',
-  });
+
+  useEffect(() => {
+    setItems(countProducts());
+    filterProducts(selection);
+    handleClick(selection);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productos]);
+  const [items, setItems] = useState(countProducts());
+  const [selection, setSelection] = useState('all');
   const handleClick = (sel) => {
-    if (sel === 'all') {
-      setSelection({
-        all: true,
-        articles: false,
-        books: false,
-        developments: false,
-        selection: 'all',
-      });
-      setFilteredProducts(productos);
-    } else if (sel === 'articulos') {
-      setSelection({
-        all: false,
-        articles: true,
-        books: false,
-        developments: false,
-        selection: 'articulos',
-      });
-      setFilteredProducts(
-        productos.filter((producto) =>
-          producto.type.match(/(articuloCongreso)|(articuloRevista)$/)
-        )
-      );
-    } else if (sel === 'libros') {
-      setSelection({
-        all: false,
-        articles: false,
-        books: true,
-        developments: false,
-        selection: 'libros',
-      });
-      setFilteredProducts(
-        productos.filter((producto) =>
-          producto.type.match(/(capituloLibro)|(Libro)$/)
-        )
-      );
-    } else if (sel === 'desarrollos') {
-      setSelection({
-        all: false,
-        articles: false,
-        books: false,
-        developments: true,
-        selection: 'desarrollos',
-      });
-      setFilteredProducts(
-        productos.filter((producto) => producto.type.match(/(Desarrollo)$/))
-      );
-    }
+    setSelection(sel);
+    filterProducts(sel);
   };
   return (
     <nav className='productTable__navbar'>
       <ul className='productTable__nav'>
         <li
           className={`productTable__nav--item ${
-            selection.all ? 'selected' : ''
+            selection === 'all' ? 'selected' : ''
           }`}
           onClick={() => handleClick('all')}
         >
@@ -102,7 +46,7 @@ const Navbar = ({ setFilteredProducts }) => {
         </li>
         <li
           className={`productTable__nav--item ${
-            selection.articles ? 'selected' : ''
+            selection === 'articulos' ? 'selected' : ''
           }`}
           onClick={() => handleClick('articulos')}
         >
@@ -112,7 +56,7 @@ const Navbar = ({ setFilteredProducts }) => {
         </li>
         <li
           className={`productTable__nav--item ${
-            selection.books ? 'selected' : ''
+            selection === 'libros' ? 'selected' : ''
           }`}
           onClick={() => handleClick('libros')}
         >
@@ -122,7 +66,7 @@ const Navbar = ({ setFilteredProducts }) => {
         </li>
         <li
           className={`productTable__nav--item ${
-            selection.developments ? 'selected' : ''
+            selection === 'desarrollos' ? 'selected' : ''
           }`}
           onClick={() => handleClick('desarrollos')}
         >

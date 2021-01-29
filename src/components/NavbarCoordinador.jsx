@@ -1,76 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import StudentContext from '../context/students/studentContext';
 import '../assets/styles/components/Navbar.css';
-import { useStore } from '../store/StoreProvider';
 
-const NavbarCoordinador = ({ setFilteredUsers }) => {
-  const { usuarios } = useStore();
-
-  useEffect(() => {
-    setItems({
-      all: usuarios.length,
-      maestria: usuarios.filter((producto) =>
-        producto.estudiante.match(/(Maestria)$/)
-      ).length,
-      doctorado: usuarios.filter((producto) =>
-        producto.estudiante.match(/(Doctorado)$/)
-      ).length,
-    });
-    handleClick(selection.selection);
-  }, [usuarios]);
-
-  const [items, setItems] = useState({
-    all: usuarios.length,
-    maestria: usuarios.filter((producto) =>
+const NavbarCoordinador = () => {
+  const studentContext = useContext(StudentContext);
+  const { filterStudents, students } = studentContext;
+  const countStudents = () => ({
+    all: students.length,
+    maestria: students.filter((producto) =>
       producto.estudiante.match(/(Maestria)$/)
     ).length,
-    doctorado: usuarios.filter((producto) =>
+    doctorado: students.filter((producto) =>
       producto.estudiante.match(/(Doctorado)$/)
     ).length,
   });
+  useEffect(() => {
+    setItems(countStudents);
+    handleClick(selection);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [students]);
 
-  const [selection, setSelection] = useState({
-    all: true,
-    articles: false,
-    books: false,
-    developments: false,
-  });
+  const [items, setItems] = useState(countStudents());
+
+  const [selection, setSelection] = useState('all');
   const handleClick = (sel) => {
-    if (sel === 'all') {
-      setSelection({
-        all: true,
-        articles: false,
-        books: false,
-        developments: false,
-      });
-      setFilteredUsers(usuarios);
-    } else if (sel === 'Maestria') {
-      setSelection({
-        all: false,
-        articles: true,
-        books: false,
-        developments: false,
-      });
-      setFilteredUsers(
-        usuarios.filter((producto) => producto.estudiante.match(/(Maestria)$/))
-      );
-    } else if (sel === 'Doctorado') {
-      setSelection({
-        all: false,
-        articles: false,
-        books: true,
-        developments: false,
-      });
-      setFilteredUsers(
-        usuarios.filter((producto) => producto.estudiante.match(/(Doctorado)$/))
-      );
-    }
+    setSelection(sel);
+    filterStudents(sel);
   };
   return (
     <nav className='productTable__navbar'>
       <ul className='productTable__nav'>
         <li
           className={`productTable__nav--item ${
-            selection.all ? 'selected' : ''
+            selection === 'all' ? 'selected' : ''
           }`}
           onClick={() => handleClick('all')}
         >
@@ -80,7 +42,7 @@ const NavbarCoordinador = ({ setFilteredUsers }) => {
         </li>
         <li
           className={`productTable__nav--item ${
-            selection.articles ? 'selected' : ''
+            selection === 'Maestria' ? 'selected' : ''
           }`}
           onClick={() => handleClick('Maestria')}
         >
@@ -90,7 +52,7 @@ const NavbarCoordinador = ({ setFilteredUsers }) => {
         </li>
         <li
           className={`productTable__nav--item ${
-            selection.books ? 'selected' : ''
+            selection === 'Doctorado' ? 'selected' : ''
           }`}
           onClick={() => handleClick('Doctorado')}
         >

@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../assets/styles/ArticuloCongreso.css';
 import { useHistory, useLocation } from 'react-router-dom';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import md5 from 'md5';
-import { useDispatch } from '../store/StoreProvider';
 import { ArticleCongressSchema } from '../utils/schemas/ArticleSchemas';
+import ProductContext from '../context/products/productContext';
 
 const ArticuloCongreso = () => {
-  const dispatch = useDispatch();
   const historia = useHistory();
   const location = useLocation();
+  const productContext = useContext(ProductContext);
+  const { addProduct, updateProduct, error } = productContext;
 
   const initialValues = location.state
     ? location.state.params
@@ -25,45 +26,15 @@ const ArticuloCongreso = () => {
           fecha: '',
         },
       };
-  const onSubmit = (values) => {
+  const onSubmit = (product) => {
     if (location.state) {
-      delete values._id;
-      fetch(
-        `https://productividad-api-devguicho.vercel.app/products/${values.id}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(values),
-        }
-      )
-        .then((res) => {
-          dispatch({
-            type: 'UPDATE_PRODUCT',
-            value: values,
-          });
-        })
-        .catch((err) => false);
+      delete product._id;
+      updateProduct(product);
     } else {
-      values.id = md5(values.titulo);
-      fetch('https://productividad-api-devguicho.vercel.app/products', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      })
-        .then((res) => {
-          dispatch({
-            type: 'ADD_PRODUCT',
-            value: values,
-          });
-        })
-        .catch((err) => console.log(err));
+      product.id = md5(Date.now());
+      addProduct(product);
     }
-
-    historia.push('/products');
+    if (!error) historia.push('/products');
   };
   const validationSchema = ArticleCongressSchema;
 

@@ -4,7 +4,7 @@ import '../assets/styles/components/Header.css'; //Importar Hojas de Estilos
 const Header = () => {
   return (
     /*class -> className */
-    <header className='header'> 
+    <header className='header'>
       <div className='header__title'>
         <img src={logoIpn} alt='logo IPN' />
         <div className='header__text'>

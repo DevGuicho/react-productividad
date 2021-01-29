@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/Dashboard.css'; //Importar Estilos a un Componente
 import Navbar from '../components/Navbar';
 import ListProduct from '../components/ListProduct';
 import Product from '../components/Product';
-import { useStore } from '../store/StoreProvider';
-import useInitialState from '../hooks/useInitialState';
+import ProyectoContext from '../context/products/productContext';
 // Containears-> Componentes Mas Grandes
 const Dashboar = () => {
-  useInitialState();
+  const proyectoContext = useContext(ProyectoContext);
+  const { loading, filteredProducts, getProducts } = proyectoContext;
 
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const { loading } = useStore();
+  useEffect(() => {
+    getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className='main'>
@@ -23,7 +25,7 @@ const Dashboar = () => {
             <span>Agregar producto</span>
           </Link>
         </div>
-        <Navbar setFilteredProducts={setFilteredProducts} />
+        <Navbar />
         <ListProduct>
           {loading ? (
             <div>loading...</div>
@@ -33,8 +35,6 @@ const Dashboar = () => {
                 key={producto.id}
                 product={producto}
                 type={producto.type}
-                setFilteredProducts={setFilteredProducts}
-                filteredProducts={filteredProducts}
               />
             ))
           )}

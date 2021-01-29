@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import '../assets/styles/Dashboard.css';
 import '../assets/styles/UserCord.css';
 import ListProduct from '../components/ListProduct';
 import User from '../components/Users';
 import NavbarCoordinador from '../components/NavbarCoordinador';
-import { useStore } from '../store/StoreProvider';
+import StudentContext from '../context/students/studentContext';
 
 const DashboardCordinator = () => {
-  const [filteredUsers, setFilteredUsers] = useState(useStore().usuarios);
+  const studentContext = useContext(StudentContext);
+  const { getStudents, filteredStudents } = studentContext;
+
+  useEffect(() => {
+    getStudents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  /* const [filteredUsers, setFilteredUsers] = useState(useStore().usuarios); */
 
   return (
     <section className='main'>
@@ -16,12 +23,12 @@ const DashboardCordinator = () => {
           <h2>Alumnos</h2>
         </div>
 
-        <NavbarCoordinador setFilteredUsers={setFilteredUsers} />
+        <NavbarCoordinador />
         <ListProduct>
-          {filteredUsers.map((producto) => (
+          {filteredStudents.map((producto) => (
             <User key={producto.id} product={producto} type={producto.type} />
           ))}
-          {filteredUsers.length === 0 ? (
+          {filteredStudents.length === 0 ? (
             <div className='emptyProduct'>
               <i className='fas fa-times-circle'></i>
               No hay Alumnos Registrados
