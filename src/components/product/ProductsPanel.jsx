@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import ListProduct from './ListProduct';
 import Product from './Product';
@@ -7,24 +7,36 @@ import ProyectoContext from '../../context/products/productContext';
 import '../../assets/styles/Dashboard.css'; //Importar Estilos a un Componente
 
 // Containears-> Componentes Mas Grandes
-const Dashboard = () => {
+const ProductsPanel = () => {
   const proyectoContext = useContext(ProyectoContext);
-  const { loading, filteredProducts, getProducts } = proyectoContext;
+  const {
+    loading,
+    filteredProducts,
+    getProducts,
+    getStudentProducts,
+  } = proyectoContext;
+  const location = useLocation();
+  const student = location.state ? location.state.params : null;
+  /* const usuario = location.state.params; */
 
   useEffect(() => {
-    getProducts();
+    if (!student) getProducts();
+    else getStudentProducts(student.id);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [location.state]);
 
   return (
     <section className='main'>
       <div className='productTable'>
         <div className='productTable__header'>
           <h2>Productividad</h2>
-          <Link to='/select' className='btn'>
-            <i className='fas fa-plus'></i>
-            <span>Agregar producto</span>
-          </Link>
+          {!student && (
+            <Link to='/select' className='btn'>
+              <i className='fas fa-plus'></i>
+              <span>Agregar producto</span>
+            </Link>
+          )}
         </div>
         <Navbar />
         <ListProduct>
@@ -36,6 +48,7 @@ const Dashboard = () => {
                 key={producto.id}
                 product={producto}
                 type={producto.type}
+                isCordinator={student}
               />
             ))
           )}
@@ -45,4 +58,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ProductsPanel;

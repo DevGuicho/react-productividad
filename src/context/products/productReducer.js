@@ -5,6 +5,7 @@ import {
   DELETE_PRODUCT,
   FILTER_PRODUCTS,
   GET_PRODUCTS,
+  GET_STUDENT_PRODUCTS,
   UPDATE_PRODUCT,
 } from '../types';
 
@@ -35,6 +36,7 @@ export default (state, action) => {
         ...state,
         place: action.value,
       };
+    case GET_STUDENT_PRODUCTS:
     case GET_PRODUCTS:
       return {
         ...state,

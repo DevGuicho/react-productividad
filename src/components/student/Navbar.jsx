@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import StudentContext from '../../context/students/studentContext';
 import '../../assets/styles/components/Navbar.css';
 
-const NavbarCoordinador = () => {
+const Navbar = () => {
   const studentContext = useContext(StudentContext);
   const { filterStudents, students } = studentContext;
   const countStudents = () => ({
@@ -65,4 +65,4 @@ const NavbarCoordinador = () => {
   );
 };
 
-export default NavbarCoordinador;
+export default Navbar;

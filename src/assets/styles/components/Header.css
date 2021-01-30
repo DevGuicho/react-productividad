@@ -40,6 +40,7 @@
   margin-right: 20px;
 }
 .panel__user {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,6 +72,7 @@
   margin-left: 10px;
   font-size: 1.6rem;
 }
+
 @media (max-width: 425px) {
   .panel__user--name {
     display: none;

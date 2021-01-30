@@ -59,6 +59,10 @@ const Sidebar = (props) => {
           </li>
         </ul>
       </nav>
+      <Link to='/login' className='logout'>
+        <i className='fas fa-power-off'></i>
+        <span>Cerrar Sesión</span>
+      </Link>
     </aside>
   );
 };

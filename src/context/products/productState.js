@@ -1,9 +1,12 @@
 import React, { useReducer } from 'react';
+import clienteAxios from '../../config/axios';
+import { students } from '../../utils/mocks/students';
 import {
   ADD_PRODUCT,
   DELETE_PRODUCT,
   FILTER_PRODUCTS,
   GET_PRODUCTS,
+  GET_STUDENT_PRODUCTS,
   UPDATE_PRODUCT,
 } from '../types';
 import productContext from './productContext';
@@ -20,26 +23,26 @@ const ProductState = (props) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
 
   const getProducts = async () => {
-    fetch('https://productividad-api-devguicho.vercel.app/products')
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch({
-          type: GET_PRODUCTS,
-          value: data.data,
-        });
-        return data.data;
+    try {
+      const resultado = await clienteAxios.get('/products');
+      dispatch({
+        type: GET_PRODUCTS,
+        value: resultado.data.data,
       });
+    } catch (error) {
+      console.log('error');
+    }
   };
-
+  const getStudentProducts = async (id) => {
+    const student = students.find((student) => student.id === id);
+    dispatch({
+      type: GET_STUDENT_PRODUCTS,
+      value: student.productos,
+    });
+  };
   const addProduct = async (product) => {
     try {
-      await fetch('https://productividad-api-devguicho.vercel.app/products', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-      });
+      await clienteAxios.post('/products', JSON.stringify(product));
       dispatch({
         type: ADD_PRODUCT,
         value: product,
@@ -78,36 +81,27 @@ const ProductState = (props) => {
   };
   const updateProduct = async (product) => {
     delete product._id;
-    fetch(
-      `https://productividad-api-devguicho.vercel.app/products/${product.id}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-      }
-    )
-      .then((res) => {
-        dispatch({
-          type: UPDATE_PRODUCT,
-          value: product,
-        });
-      })
-      .catch((err) => false);
+    try {
+      await clienteAxios.put(`/products/${product.id}`, product);
+      dispatch({
+        type: UPDATE_PRODUCT,
+        value: product,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const deleteProduct = async (id) => {
-    fetch(`https://productividad-api-devguicho.vercel.app/products/${id}`, {
-      method: 'DELETE',
-    })
-      .then((res) => {
-        dispatch({
-          type: DELETE_PRODUCT,
-          value: id,
-        });
-      })
-      .catch((err) => false);
+    try {
+      await clienteAxios.delete(`/products/${id}`);
+      dispatch({
+        type: DELETE_PRODUCT,
+        value: id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <productContext.Provider
@@ -119,6 +113,7 @@ const ProductState = (props) => {
         addProduct,
         updateProduct,
         getProducts,
+        getStudentProducts,
         filterProducts,
         deleteProduct,
       }}
